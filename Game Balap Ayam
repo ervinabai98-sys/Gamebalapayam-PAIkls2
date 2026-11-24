@@ -1,0 +1,2458 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>BALAP AYAM CERDAS 3D - Edisi PAI Kelas 2 SD: Sholat Fardhu</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Nunito', sans-serif;
+      background: #38bdf8;
+    }
+    .font-display {
+      font-family: 'Fredoka', sans-serif;
+    }
+
+    /* =====================================================================
+       1. LATAR BELAKANG DAYLIGHT 3D SUPER CERAH & SEGAR
+       ===================================================================== */
+    .scenic-3d-bg {
+      background: linear-gradient(
+        180deg,
+        #0ea5e9 0%,
+        #38bdf8 26%,
+        #7dd3fc 52%,
+        #e0f2fe 73%,
+        #86efac 73.5%,
+        #4ade80 85%,
+        #22c55e 100%
+      );
+      position: relative;
+    }
+    /* Izinkan seleksi teks pada input nama pemain */
+    input[type="text"] {
+      user-select: text;
+      -webkit-user-select: text;
+    }
+
+    /* Sinar Matahari Hangat Berputar Halus */
+    @keyframes sunRaysSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .sun-rays {
+      background: repeating-conic-gradient(
+        from 0deg,
+        rgba(254, 240, 138, 0.32) 0deg 15deg,
+        transparent 15deg 30deg
+      );
+      animation: sunRaysSpin 45s linear infinite;
+    }
+
+    /* Awan 3D Fluffy Mengembang */
+    @keyframes floatCloud3D {
+      0% { transform: translateX(-180px); }
+      100% { transform: translateX(calc(100vw + 200px)); }
+    }
+    .cloud-3d-1 {
+      animation: floatCloud3D 34s linear infinite;
+      filter: drop-shadow(0 8px 6px rgba(14, 116, 144, 0.16));
+    }
+    .cloud-3d-2 {
+      animation: floatCloud3D 48s linear infinite;
+      animation-delay: -16s;
+      filter: drop-shadow(0 6px 5px rgba(14, 116, 144, 0.14));
+    }
+
+    /* =====================================================================
+       2. LINTASAN BALAP PERSPEKTIF 3D NYATA
+       ===================================================================== */
+    .track-stage-3d {
+      perspective: 620px;
+      transform-style: preserve-3d;
+    }
+
+    .track-plane-3d {
+      transform: rotateX(24deg);
+      transform-origin: bottom center;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0) 35%, rgba(120,53,15,0.18) 100%),
+        repeating-linear-gradient(
+          90deg,
+          #fbbf24 0px,
+          #fbbf24 54px,
+          #f59e0b 54px,
+          #f59e0b 108px
+        );
+      border-top: 6px solid #fffbeb;
+      border-bottom: 10px solid #b45309;
+      box-shadow:
+        0 14px 24px rgba(21, 128, 61, 0.35),
+        inset 0 6px 12px rgba(255, 255, 255, 0.55);
+    }
+
+    /* Garis Putih-Emas Menyala di Tengah Lintasan */
+    .track-lane-lines {
+      background: repeating-linear-gradient(
+        90deg,
+        #ffffff 0px,
+        #ffffff 28px,
+        transparent 28px,
+        transparent 52px
+      );
+      height: 5px;
+      opacity: 0.85;
+      border-radius: 99px;
+      box-shadow: 0 2px 4px rgba(180, 83, 9, 0.3);
+    }
+
+    /* Pagar Pembatas 3D Putih-Merah/Kuning di Atas Lintasan */
+    .fence-3d-rail {
+      background: repeating-linear-gradient(
+        90deg,
+        #ffffff 0px,
+        #ffffff 24px,
+        #fb7185 24px,
+        #fb7185 48px
+      );
+      border-top: 3px solid #fff1f2;
+      border-bottom: 4px solid #be123c;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.18);
+    }
+
+    /* Pola Kotak-kotak Garis Finish 3D */
+    .checkered-flag-3d {
+      background-image:
+        linear-gradient(45deg, #0f172a 25%, transparent 25%),
+        linear-gradient(-45deg, #0f172a 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #0f172a 75%),
+        linear-gradient(-45deg, transparent 75%, #0f172a 75%);
+      background-size: 16px 16px;
+      background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+      background-color: #ffffff;
+      box-shadow: 0 0 14px rgba(255, 255, 255, 0.9);
+    }
+
+    @keyframes flagWave {
+      0%, 100% { transform: skewY(-4deg) scaleX(1); }
+      50% { transform: skewY(5deg) scaleX(0.94); }
+    }
+    .flag-banner-wave {
+      transform-origin: left center;
+      animation: flagWave 1.4s ease-in-out infinite;
+    }
+
+    /* =====================================================================
+       3. TOMBOL ARCADE 3D GLOSSY TEBAL (TACTILE 3D UI)
+       ===================================================================== */
+    .btn-3d {
+      position: relative;
+      transition: transform 0.1s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.1s ease, filter 0.15s ease;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    /* Kilau Glossy di Bagian Atas Tombol */
+    .btn-3d::before {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 6px;
+      right: 6px;
+      height: 38%;
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0.08) 100%);
+      pointer-events: none;
+    }
+    .btn-3d:hover {
+      filter: brightness(1.04);
+      transform: translateY(-2px);
+    }
+    .btn-3d:active {
+      transform: translateY(5px);
+    }
+
+    .btn-3d-emerald {
+      background: linear-gradient(180deg, #4ade80 0%, #16a34a 100%);
+      border: 3px solid #ffffff;
+      box-shadow: 0 6px 0 #15803d, 0 10px 18px rgba(21, 128, 61, 0.35);
+    }
+    .btn-3d-emerald:active {
+      box-shadow: 0 1px 0 #15803d;
+    }
+
+    .btn-3d-sky {
+      background: linear-gradient(180deg, #38bdf8 0%, #0284c7 100%);
+      border: 3px solid #ffffff;
+      box-shadow: 0 6px 0 #0369a1, 0 10px 18px rgba(3, 105, 161, 0.35);
+    }
+    .btn-3d-sky:active {
+      box-shadow: 0 1px 0 #0369a1;
+    }
+
+    .btn-3d-gold {
+      background: linear-gradient(180deg, #fde047 0%, #f59e0b 100%);
+      border: 3px solid #ffffff;
+      box-shadow: 0 6px 0 #b45309, 0 10px 18px rgba(180, 83, 9, 0.32);
+    }
+    .btn-3d-gold:active {
+      box-shadow: 0 1px 0 #b45309;
+    }
+
+    .btn-3d-coral {
+      background: linear-gradient(180deg, #fb7185 0%, #e11d48 100%);
+      border: 3px solid #ffffff;
+      box-shadow: 0 6px 0 #9f1239, 0 10px 18px rgba(159, 18, 57, 0.32);
+    }
+    .btn-3d-coral:active {
+      box-shadow: 0 1px 0 #9f1239;
+    }
+
+    .btn-3d-white {
+      background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+      border: 3px solid #cbd5e1;
+      box-shadow: 0 6px 0 #94a3b8, 0 10px 16px rgba(15, 23, 42, 0.14);
+    }
+    .btn-3d-white:active {
+      box-shadow: 0 1px 0 #94a3b8;
+    }
+
+    /* Kartu Panel 3D Putih Cerah Mengilap */
+    .card-3d-bright {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      border: 4px solid #ffffff;
+      box-shadow:
+        0 10px 0 rgba(14, 116, 144, 0.25),
+        0 18px 32px rgba(15, 23, 42, 0.22),
+        inset 0 3px 0 rgba(255, 255, 255, 1);
+    }
+
+    /* =====================================================================
+       4. ANIMASI KARAKTER AYAM 3D, BAYANGAN KONTAK, & PARTIKEL BINTANG
+       ===================================================================== */
+    @keyframes chickenBounce3D {
+      0%, 100% { transform: translateY(0px) scaleX(1.03) scaleY(0.97); }
+      50% { transform: translateY(-6px) scaleX(0.97) scaleY(1.04); }
+    }
+    @keyframes shadowIdle {
+      0%, 100% { transform: scale(1); opacity: 0.42; }
+      50% { transform: scale(0.84); opacity: 0.26; }
+    }
+
+    /* Lompatan Parabolik 3D saat Jawaban Benar */
+    @keyframes chickenJump3D {
+      0% { transform: translateY(0px) rotate(0deg) scale(1); }
+      30% { transform: translateY(-38px) rotate(-12deg) scale(1.15); }
+      65% { transform: translateY(-18px) rotate(10deg) scale(1.08); }
+      100% { transform: translateY(0px) rotate(0deg) scale(1); }
+    }
+    @keyframes shadowJump3D {
+      0% { transform: scale(1); opacity: 0.45; }
+      30% { transform: scale(0.45); opacity: 0.15; }
+      65% { transform: scale(0.68); opacity: 0.24; }
+      100% { transform: scale(1); opacity: 0.45; }
+    }
+
+    @keyframes chickenWobble3D {
+      0%, 100% { transform: translateX(0) rotate(0deg); }
+      20% { transform: translateX(-8px) rotate(-8deg); }
+      40% { transform: translateX(8px) rotate(8deg); }
+      60% { transform: translateX(-5px) rotate(-5deg); }
+      80% { transform: translateX(5px) rotate(5deg); }
+    }
+
+    @keyframes wingFlap3D {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(-30deg); }
+    }
+
+    @keyframes legRunLeft {
+      0%, 100% { transform: rotate(-16deg); }
+      50% { transform: rotate(18deg); }
+    }
+    @keyframes legRunRight {
+      0%, 100% { transform: rotate(18deg); }
+      50% { transform: rotate(-16deg); }
+    }
+
+    @keyframes sparkleBurst {
+      0% { opacity: 1; transform: scale(0.4) translate(0, 0); }
+      100% { opacity: 0; transform: scale(1.55) translate(-28px, -22px); }
+    }
+
+    .chicken-idle-3d {
+      animation: chickenBounce3D 0.85s ease-in-out infinite;
+    }
+    .chicken-shadow-idle {
+      animation: shadowIdle 0.85s ease-in-out infinite;
+    }
+    .chicken-jump-3d {
+      animation: chickenJump3D 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .chicken-shadow-jump {
+      animation: shadowJump3D 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .chicken-wobble-3d {
+      animation: chickenWobble3D 0.45s ease-in-out;
+    }
+    .wing-3d {
+      transform-origin: 48% 52%;
+      animation: wingFlap3D 0.3s ease-in-out infinite;
+    }
+    .leg-l {
+      transform-origin: 48px 92px;
+      animation: legRunLeft 0.32s ease-in-out infinite;
+    }
+    .leg-r {
+      transform-origin: 68px 92px;
+      animation: legRunRight 0.32s ease-in-out infinite;
+    }
+    .sparkle-burst {
+      animation: sparkleBurst 0.65s ease-out forwards;
+    }
+
+    /* Animasi Pop-in & Konfeti Podium */
+    @keyframes popIn3D {
+      0% { transform: scale(0.55) translateY(18px); opacity: 0; }
+      75% { transform: scale(1.05) translateY(-3px); opacity: 1; }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+    .animate-pop-3d {
+      animation: popIn3D 0.34s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    @keyframes confettiFall {
+      0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(340px) rotate(540deg); opacity: 0; }
+    }
+    .confetti-piece {
+      position: absolute;
+      top: -10px;
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      animation: confettiFall 2.6s linear infinite;
+    }
+
+    .custom-scroll::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: rgba(2, 132, 199, 0.35);
+      border-radius: 999px;
+    }
+  </style>
+</head>
+<body class="scenic-3d-bg select-none">
+
+  <!-- DEKORASI LATAR BELAKANG 3D CERAH (SINAR MATAHARI & AWAN FLUFFY) -->
+  <div class="pointer-events-none fixed inset-0 overflow-hidden z-0">
+    <!-- Matahari & Sinar Berputar -->
+    <div class="absolute -top-24 -right-24 w-72 h-72 sm:w-96 sm:h-96 rounded-full sun-rays opacity-75"></div>
+    <div class="absolute top-4 right-6 w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-b from-yellow-200 to-amber-400 border-4 border-white shadow-[0_0_32px_rgba(253,224,71,0.9)]"></div>
+
+    <!-- Awan 3D 1 -->
+    <div class="cloud-3d-1 absolute top-10 left-0">
+      <div class="relative w-32 h-11 bg-white rounded-full">
+        <div class="absolute -top-5 left-5 w-14 h-14 bg-white rounded-full"></div>
+        <div class="absolute -top-3 right-6 w-11 h-11 bg-white rounded-full"></div>
+      </div>
+    </div>
+
+    <!-- Awan 3D 2 -->
+    <div class="cloud-3d-2 absolute top-24 left-0">
+      <div class="relative w-28 h-9 bg-white/90 rounded-full">
+        <div class="absolute -top-4 left-4 w-12 h-12 bg-white/90 rounded-full"></div>
+        <div class="absolute -top-2 right-5 w-9 h-9 bg-white/90 rounded-full"></div>
+      </div>
+    </div>
+
+    <!-- Siluet Kubah Masjid Cerah di Kejauhan -->
+    <div class="absolute bottom-[25%] left-4 sm:left-12 opacity-30 flex items-end gap-1">
+      <div class="w-4 h-16 bg-emerald-700 rounded-t-full"></div>
+      <div class="w-16 h-12 bg-emerald-600 rounded-t-full"></div>
+      <div class="w-4 h-14 bg-emerald-700 rounded-t-full"></div>
+    </div>
+    <div class="absolute bottom-[25%] right-4 sm:right-12 opacity-30 flex items-end gap-1">
+      <div class="w-4 h-14 bg-emerald-700 rounded-t-full"></div>
+      <div class="w-16 h-12 bg-emerald-600 rounded-t-full"></div>
+      <div class="w-4 h-16 bg-emerald-700 rounded-t-full"></div>
+    </div>
+  </div>
+
+  <!-- TOMBOL KONTROL POJOK KANAN ATAS (SUARA & MENU) -->
+  <div class="fixed top-2 right-2 sm:top-3 sm:right-3 z-50 flex items-center gap-1.5 sm:gap-2">
+    <button id="btn-home-top" onclick="confirmBackToMenu()" title="Kembali ke Menu"
+      class="hidden btn-3d btn-3d-coral text-white font-display font-bold px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-2xl text-xs sm:text-sm flex items-center gap-1">
+      <span>🏠</span><span class="hidden sm:inline">Menu</span>
+    </button>
+    <button id="btn-audio" onclick="toggleAudio()" title="Suara Aktif/Mati"
+      class="btn-3d btn-3d-gold text-amber-950 font-display font-bold w-9 h-9 sm:w-11 sm:h-11 rounded-2xl text-base sm:text-xl flex items-center justify-center">
+      🔊
+    </button>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- LAYAR 1: HOME / HALAMAN UTAMA                                         -->
+  <!-- ===================================================================== -->
+  <section id="screen-home" class="relative z-10 w-full h-[100dvh] flex flex-col items-center justify-center p-3 sm:p-6 overflow-y-auto custom-scroll">
+    <div class="w-full max-w-4xl card-3d-bright rounded-[2.25rem] p-5 sm:p-8 text-center animate-pop-3d my-auto">
+      <!-- Badge Kelas & Mapel -->
+      <div class="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-600 border-3 border-white text-white font-display font-bold text-xs sm:text-base px-4 py-1.5 rounded-full shadow-[0_4px_0_#0f766e] mb-3">
+        <span>🕌</span> PENDIDIKAN AGAMA ISLAM (PAI) • KELAS 2 SD
+      </div>
+
+      <!-- Judul Utama 3D -->
+      <h1 class="font-display font-bold text-3xl sm:text-5xl md:text-6xl text-sky-900 tracking-tight drop-shadow-[0_3px_0_#bae6fd]">
+        BALAP AYAM CERDAS 3D
+      </h1>
+      <div class="inline-block bg-amber-300 border-2 border-amber-500 text-amber-950 font-display font-bold text-sm sm:text-xl px-4 py-1 rounded-2xl mt-2 shadow-xs">
+        ✨ Materi Sholat Fardhu & Ketentuannya ✨
+      </div>
+
+      <!-- Panggung Pratinjau 2 Karakter Ayam 3D -->
+      <div class="my-5 sm:my-6 bg-gradient-to-b from-sky-100 via-emerald-50 to-amber-100 border-3 border-white rounded-3xl p-4 shadow-inner">
+        <div class="grid grid-cols-2 gap-4 max-w-xl mx-auto items-end">
+          <!-- Pratinjau Pemain 1 -->
+          <div class="flex flex-col items-center">
+            <div id="home-chicken-1" class="w-24 h-24 sm:w-28 sm:h-28 chicken-idle-3d"></div>
+            <div class="w-16 h-3 rounded-full bg-amber-950/25 -mt-2 chicken-shadow-idle"></div>
+            <span id="home-label-1" class="mt-2 bg-sky-500 border-2 border-white text-white font-display font-bold text-xs sm:text-sm px-3 py-1 rounded-full shadow-xs">
+              Pemain 1: Si Putih
+            </span>
+          </div>
+
+          <!-- Pratinjau Pemain 2 -->
+          <div class="flex flex-col items-center">
+            <div id="home-chicken-2" class="w-24 h-24 sm:w-28 sm:h-28 chicken-idle-3d" style="animation-delay: 0.25s;"></div>
+            <div class="w-16 h-3 rounded-full bg-amber-950/25 -mt-2 chicken-shadow-idle" style="animation-delay: 0.25s;"></div>
+            <span id="home-label-2" class="mt-2 bg-amber-500 border-2 border-white text-amber-950 font-display font-bold text-xs sm:text-sm px-3 py-1 rounded-full shadow-xs">
+              Pemain 2: Si Kuning
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pilihan Mode Utama: SOLO vs BATTLE 2 PEMAIN -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 max-w-2xl mx-auto">
+        <button onclick="selectMode('solo')" class="btn-3d btn-3d-emerald text-white rounded-3xl p-4 sm:p-5 flex items-center justify-center gap-3.5 text-left">
+          <span class="text-3xl sm:text-4xl bg-white/25 w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">🏃‍♂️</span>
+          <div>
+            <div class="font-display font-bold text-xl sm:text-2xl leading-tight">MODE SOLO</div>
+            <div class="text-xs sm:text-sm font-extrabold text-emerald-50">1 Pemain • Latihan ke Finish</div>
+          </div>
+        </button>
+
+        <button onclick="selectMode('battle')" class="btn-3d btn-3d-sky text-white rounded-3xl p-4 sm:p-5 flex items-center justify-center gap-3.5 text-left">
+          <span class="text-3xl sm:text-4xl bg-white/25 w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">⚔️</span>
+          <div>
+            <div class="font-display font-bold text-xl sm:text-2xl leading-tight">BATTLE 2 PEMAIN</div>
+            <div class="text-xs sm:text-sm font-extrabold text-sky-50">2 Siswa • Lomba Layar Terbagi</div>
+          </div>
+        </button>
+      </div>
+
+      <!-- Tombol Panduan & Riwayat Skor -->
+      <div class="flex flex-wrap items-center justify-center gap-3 mt-4 sm:mt-5">
+        <button onclick="openModal('modal-guide')" class="btn-3d btn-3d-white text-sky-900 font-display font-bold px-5 py-2.5 rounded-2xl text-sm sm:text-base flex items-center gap-2">
+          <span>📖</span> Panduan Bermain
+        </button>
+        <button onclick="openHistoryModal()" class="btn-3d btn-3d-gold text-amber-950 font-display font-bold px-5 py-2.5 rounded-2xl text-sm sm:text-base flex items-center gap-2">
+          <span>🏆</span> Riwayat Skor
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- LAYAR 2: PERSIAPAN (KUSTOMISASI AYAM, PAKET MATERI, & JUMLAH SOAL)    -->
+  <!-- ===================================================================== -->
+  <section id="screen-setup" class="hidden relative z-10 w-full h-[100dvh] flex flex-col items-center justify-center p-2.5 sm:p-5 overflow-y-auto custom-scroll">
+    <div class="w-full max-w-5xl card-3d-bright rounded-[2rem] p-4 sm:p-6 animate-pop-3d my-auto">
+      <!-- Bar Atas Setup -->
+      <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b-2 border-sky-100">
+        <button onclick="showScreen('screen-home')" class="btn-3d btn-3d-white text-slate-800 font-display font-bold px-3.5 py-2 rounded-2xl text-xs sm:text-sm flex items-center gap-1.5">
+          <span>⬅️</span> Kembali
+        </button>
+        <span id="setup-mode-badge" class="bg-gradient-to-b from-emerald-400 to-emerald-600 border-3 border-white text-white font-display font-bold px-5 py-1.5 rounded-full text-xs sm:text-base shadow-[0_4px_0_#065f46]">
+          🏃‍♂️ MODE SOLO (1 PEMAIN)
+        </span>
+        <div class="w-16 hidden sm:block"></div>
+      </div>
+
+      <!-- Langkah 1: Kustomisasi Nama & Warna Ayam 3D -->
+      <div class="mt-3">
+        <h2 class="font-display font-bold text-base sm:text-xl text-sky-950 flex items-center gap-2">
+          <span>🎨</span> 1. Atur Nama & Warna Ayam Balapmu:
+        </h2>
+        <div id="customizer-container" class="grid grid-cols-1 gap-3 mt-2">
+          <!-- Diisi via JS -->
+        </div>
+      </div>
+
+      <!-- Langkah 2: Pilih Paket Latihan PAI Kelas 2 SD -->
+      <div class="mt-4">
+        <h2 class="font-display font-bold text-base sm:text-xl text-sky-950 flex items-center gap-2">
+          <span>📚</span> 2. Pilih Paket Materi Sholat Fardhu (PAI Kelas 2 SD):
+        </h2>
+        <div id="packet-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 mt-2">
+          <!-- Diisi via JS -->
+        </div>
+      </div>
+
+      <!-- Langkah 3: Pilih Jumlah Soal & Tombol MULAI BALAP -->
+      <div class="mt-4 pt-3 border-t-2 border-sky-100 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+          <span class="font-display font-bold text-sm sm:text-lg text-sky-950 mr-1">🔢 Jumlah Soal:</span>
+          <button onclick="selectQuestionCount(10)" data-count="10" class="count-btn btn-3d btn-3d-sky text-white font-display font-bold px-4 py-2 rounded-2xl text-sm sm:text-base">
+            10 Soal
+          </button>
+          <button onclick="selectQuestionCount(15)" data-count="15" class="count-btn btn-3d btn-3d-white text-slate-800 font-display font-bold px-4 py-2 rounded-2xl text-sm sm:text-base">
+            15 Soal
+          </button>
+          <button onclick="selectQuestionCount(20)" data-count="20" class="count-btn btn-3d btn-3d-white text-slate-800 font-display font-bold px-4 py-2 rounded-2xl text-sm sm:text-base">
+            20 Soal
+          </button>
+        </div>
+
+        <button onclick="startGame()" class="w-full sm:w-auto btn-3d btn-3d-emerald text-white font-display font-bold px-8 py-3.5 rounded-2xl text-lg sm:text-xl flex items-center justify-center gap-2">
+          <span>🏁</span> MULAI BALAP!
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- LAYAR 3: GAMEPLAY (MODE SOLO & MODE BATTLE 2 PEMAIN - COMPACT 100VH)  -->
+  <!-- ===================================================================== -->
+  <section id="screen-game" class="hidden relative z-10 w-full h-[100dvh] flex flex-col overflow-hidden">
+    <!-- Sub-layar Mode SOLO (Arena Lintasan 3D & Kartu Soal Menyatu Rapat) -->
+    <div id="gameplay-solo" class="hidden w-full h-full flex flex-col justify-between p-1.5 sm:p-2.5 max-w-5xl mx-auto">
+      <!-- HUD Mini Ringkas Atas Solo 3D -->
+      <div class="bg-white/95 border-2 border-white rounded-2xl px-2.5 py-1.5 sm:px-4 sm:py-1.5 shadow-[0_4px_0_rgba(3,105,161,0.28)] flex flex-wrap items-center justify-between gap-1.5 pr-24 sm:pr-28 shrink-0">
+        <div class="flex items-center gap-1.5 sm:gap-2">
+          <span class="bg-gradient-to-b from-emerald-400 to-emerald-600 text-white font-display font-bold px-2.5 py-0.5 rounded-xl text-xs sm:text-sm shadow-[0_2px_0_#065f46]">
+            Soal <span id="solo-q-num">1</span>/<span id="solo-q-total">10</span>
+          </span>
+          <span id="solo-player-badge" class="bg-sky-500 text-white font-display font-bold px-2.5 py-0.5 rounded-xl text-xs sm:text-sm border border-white shadow-2xs">
+            🐔 Si Putih
+          </span>
+          <span id="solo-packet-badge" class="hidden md:inline-block bg-sky-100 text-sky-900 font-extrabold px-2.5 py-0.5 rounded-xl text-xs border border-sky-300">
+            Paket 1
+          </span>
+        </div>
+        <div class="flex items-center gap-1.5 sm:gap-3 font-display font-bold text-xs sm:text-base">
+          <div class="bg-amber-100 text-amber-900 px-2 py-0.5 rounded-xl border border-amber-300">⭐ <span id="solo-score">0</span></div>
+          <div class="bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-xl border border-emerald-300">✅ <span id="solo-correct">0</span></div>
+          <div class="bg-sky-100 text-sky-900 px-2 py-0.5 rounded-xl border border-sky-300">⏱️ <span id="solo-timer">00:00</span></div>
+        </div>
+      </div>
+
+      <!-- BINGKAI ARENA TERPADU: LINTASAN BALAP 3D MENEMPEL LANGSUNG KE KARTU SOAL -->
+      <div class="flex-1 flex flex-col justify-start min-h-0 mt-1.5">
+        <!-- Lintasan Balap Perspektif 3D Solo (Kompak 165-185px, Penuh Aksi) -->
+        <div class="relative w-full h-[168px] sm:h-[184px] shrink-0 flex flex-col justify-end track-stage-3d px-1">
+          <!-- Papan Banner START & Gerbang FINISH 3D -->
+          <div class="relative z-20 flex items-center justify-between px-3 sm:px-6 mb-[-5px]">
+            <div class="bg-gradient-to-b from-sky-400 to-sky-600 border-2 border-white text-white font-display font-bold text-[11px] sm:text-xs px-2.5 py-0.5 rounded-xl shadow-[0_3px_0_#0369a1]">
+              🚩 START
+            </div>
+            <div class="bg-white/95 border-2 border-amber-400 text-amber-900 font-display font-bold text-[11px] sm:text-xs px-3 py-0.5 rounded-full shadow-xs">
+              🏁 JAWAB TEPAT AGAR AYAM MELOMPAT KE FINISH!
+            </div>
+            <div class="bg-gradient-to-b from-rose-500 to-red-600 border-2 border-white text-white font-display font-bold text-[11px] sm:text-xs px-2.5 py-0.5 rounded-xl shadow-[0_3px_0_#9f1239] flag-banner-wave">
+              FINISH 🏁
+            </div>
+          </div>
+
+          <!-- Pagar Pembatas 3D Merah-Putih -->
+          <div class="w-full h-3 fence-3d-rail rounded-t-xl z-10"></div>
+
+          <!-- Permukaan Lintasan Balap 3D -->
+          <div class="relative w-full h-20 sm:h-24 track-plane-3d rounded-b-2xl flex items-center px-5 sm:px-9">
+            <div class="w-full track-lane-lines"></div>
+            <div class="absolute left-7 sm:left-11 top-0 bottom-0 w-2 bg-white shadow-[0_0_8px_#fff]"></div>
+            <div class="absolute right-7 sm:right-11 top-0 bottom-0 w-6 checkered-flag-3d border-x-2 border-amber-500"></div>
+          </div>
+
+          <!-- Karakter Ayam 3D Besar + Label Nama + Bayangan Kontak Dinamis -->
+          <div id="solo-racer-wrap" class="absolute bottom-2 sm:bottom-2.5 z-30 transition-all duration-500 ease-out" style="left: 2%;">
+            <div id="solo-dust-zone" class="absolute -left-5 bottom-3 pointer-events-none"></div>
+            <div class="flex flex-col items-center">
+              <span id="solo-track-name" class="mb-0.5 bg-white/95 border-2 border-sky-500 text-sky-950 font-display font-bold text-[11px] sm:text-xs px-2.5 py-0 rounded-full shadow-sm whitespace-nowrap">
+                Si Putih
+              </span>
+              <div id="solo-chicken" class="w-16 h-16 sm:w-20 sm:h-20 chicken-idle-3d"></div>
+              <div id="solo-shadow" class="w-12 sm:w-14 h-2.5 rounded-full bg-amber-950/35 -mt-2 chicken-shadow-idle"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Konektor Visual Penyambung Lintasan ke Kartu Soal (Jarak hanya 6-8px) -->
+        <div class="flex justify-center -mt-1 mb-0.5 z-20 shrink-0 pointer-events-none">
+          <div class="bg-amber-400 border-2 border-white text-amber-950 font-display font-bold text-[10px] sm:text-xs px-3 py-0.5 rounded-full shadow-xs">
+            ▼ PERTANYAAN SHOLAT FARDHU ▼
+          </div>
+        </div>
+
+        <!-- Kartu Soal & Pilihan Jawaban 3D Solo (Menempel Rapat di Bawah Lintasan) -->
+        <div class="flex-1 card-3d-bright rounded-3xl p-2.5 sm:p-4 flex flex-col justify-between min-h-0">
+          <!-- Kategori Kecil & Teks Soal -->
+          <div class="flex flex-col items-center justify-center text-center my-auto px-2">
+            <span id="solo-subtopic" class="bg-gradient-to-r from-sky-400 to-blue-500 text-white font-display font-bold text-[11px] sm:text-xs px-3 py-0.5 rounded-full shadow-2xs mb-1">
+              Pengertian Sholat Fardhu
+            </span>
+            <p id="solo-question-text" class="font-display font-bold text-base sm:text-xl md:text-2xl text-slate-900 leading-snug">
+              Memuat soal...
+            </p>
+          </div>
+
+          <!-- Banner Umpan Balik (Feedback) -->
+          <div id="solo-feedback" class="hidden my-1 px-3 py-1 rounded-xl text-center font-display font-bold text-xs sm:text-base border-2 shrink-0"></div>
+
+          <!-- 4 Tombol Opsi A, B, C, D 3D Glossy dalam Grid 2x2 Kompak -->
+          <div id="solo-options" class="grid grid-cols-2 gap-2 sm:gap-3 mt-1.5 shrink-0">
+            <!-- Diisi via JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sub-layar Mode BATTLE 2 PEMAIN (SPLIT SCREEN KIRI & KANAN - RAPAT & TERHUBUNG) -->
+    <div id="gameplay-battle" class="hidden w-full h-full grid grid-cols-2 divide-x-4 divide-white/90">
+      <!-- SISI KIRI: PEMAIN 1 -->
+      <div id="battle-panel-0" class="h-full flex flex-col justify-start p-1.5 sm:p-2 bg-sky-200/45 overflow-hidden">
+        <!-- Header P1 3D Ringkas -->
+        <div class="bg-gradient-to-r from-sky-500 to-blue-600 border-2 border-white text-white rounded-2xl px-2 py-1 flex items-center justify-between shadow-[0_3px_0_#0369a1] shrink-0">
+          <div class="flex items-center gap-1 min-w-0">
+            <span class="bg-white text-sky-700 font-display font-bold px-1.5 py-0.5 rounded-lg text-[11px] sm:text-xs shrink-0">P1</span>
+            <span id="b0-header-name" class="font-display font-bold text-xs sm:text-sm truncate">Si Putih</span>
+          </div>
+          <div class="font-display font-bold text-[11px] sm:text-xs flex items-center gap-1 shrink-0">
+            <span><span id="b0-q-num">1</span>/<span id="b0-q-total">10</span></span>
+            <span class="bg-amber-300 text-amber-950 px-1.5 py-0.5 rounded-lg border border-white">⭐<span id="b0-score">0</span></span>
+          </div>
+        </div>
+
+        <!-- Lintasan 3D P1 + Mini Penanda Lawan (Menempel Rapat di Atas Kartu Soal) -->
+        <div class="relative w-full h-[112px] sm:h-[126px] mt-1 mb-1 shrink-0 flex flex-col justify-end track-stage-3d">
+          <div class="flex justify-between px-1.5 mb-[-4px] z-20 text-[10px] font-display font-bold">
+            <span class="bg-sky-600 text-white px-2 py-0.5 rounded-lg border border-white">START</span>
+            <span id="b0-rival-badge" class="bg-white/95 text-amber-900 px-2 py-0.5 rounded-full border border-amber-400 truncate max-w-[120px]">Lawan: 0%</span>
+            <span class="bg-rose-500 text-white px-2 py-0.5 rounded-lg border border-white flag-banner-wave">FINISH 🏁</span>
+          </div>
+          <div class="w-full h-2 fence-3d-rail rounded-t-lg z-10"></div>
+          <div class="relative w-full h-14 sm:h-16 track-plane-3d rounded-b-2xl flex items-center px-2">
+            <div class="w-full track-lane-lines"></div>
+            <div class="absolute right-2 top-0 bottom-0 w-4 checkered-flag-3d border-x border-amber-500"></div>
+            <!-- Penanda Mini Posisi Lawan (P2) di Lintasan -->
+            <div id="b0-rival-marker" class="absolute top-1 z-20 transition-all duration-500 ease-out pointer-events-none" style="left: 1%;">
+              <span class="bg-amber-400 border border-white text-amber-950 font-display font-bold text-[9px] px-1.5 py-0 rounded-full shadow-2xs">P2 🐔</span>
+            </div>
+          </div>
+          <div id="b0-racer-wrap" class="absolute bottom-1.5 z-30 transition-all duration-500 ease-out" style="left: 1%;">
+            <div class="flex flex-col items-center">
+              <span id="b0-track-name" class="mb-0 bg-white/95 border border-sky-500 text-sky-950 font-display font-bold text-[10px] px-1.5 py-0 rounded-full shadow-2xs whitespace-nowrap max-w-[85px] truncate">
+                Si Putih
+              </span>
+              <div id="b0-chicken" class="w-12 h-12 sm:w-14 sm:h-14 chicken-idle-3d"></div>
+              <div id="b0-shadow" class="w-9 h-2 rounded-full bg-amber-950/35 -mt-1.5 chicken-shadow-idle"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kartu Soal P1 (Menempel Langsung di Bawah Lintasan P1) -->
+        <div class="flex-1 bg-white/95 border-3 border-white rounded-2xl p-2 sm:p-2.5 flex flex-col justify-between shadow-[0_5px_0_rgba(3,105,161,0.28)] min-h-0">
+          <div class="my-auto text-center px-1">
+            <p id="b0-question-text" class="font-display font-bold text-xs sm:text-base md:text-lg text-slate-900 leading-snug">
+              Memuat soal...
+            </p>
+          </div>
+          <div id="b0-feedback" class="hidden my-0.5 px-2 py-0.5 rounded-xl text-center font-display font-bold text-[11px] sm:text-xs border-2 shrink-0"></div>
+          <div id="b0-options" class="grid grid-cols-1 sm:grid-cols-2 gap-1.5 mt-1 shrink-0">
+            <!-- Opsi P1 -->
+          </div>
+        </div>
+      </div>
+
+      <!-- SISI KANAN: PEMAIN 2 -->
+      <div id="battle-panel-1" class="h-full flex flex-col justify-start p-1.5 sm:p-2 bg-amber-200/45 overflow-hidden">
+        <!-- Header P2 3D Ringkas -->
+        <div class="bg-gradient-to-r from-amber-400 to-orange-500 border-2 border-white text-amber-950 rounded-2xl px-2 py-1 flex items-center justify-between shadow-[0_3px_0_#b45309] pr-24 sm:pr-28 shrink-0">
+          <div class="flex items-center gap-1 min-w-0">
+            <span class="bg-white text-orange-700 font-display font-bold px-1.5 py-0.5 rounded-lg text-[11px] sm:text-xs shrink-0">P2</span>
+            <span id="b1-header-name" class="font-display font-bold text-xs sm:text-sm truncate">Si Kuning</span>
+          </div>
+          <div class="font-display font-bold text-[11px] sm:text-xs flex items-center gap-1 shrink-0">
+            <span><span id="b1-q-num">1</span>/<span id="b1-q-total">10</span></span>
+            <span class="bg-white text-amber-950 px-1.5 py-0.5 rounded-lg border border-amber-300">⭐<span id="b1-score">0</span></span>
+          </div>
+        </div>
+
+        <!-- Lintasan 3D P2 + Mini Penanda Lawan (Menempel Rapat di Atas Kartu Soal) -->
+        <div class="relative w-full h-[112px] sm:h-[126px] mt-1 mb-1 shrink-0 flex flex-col justify-end track-stage-3d">
+          <div class="flex justify-between px-1.5 mb-[-4px] z-20 text-[10px] font-display font-bold">
+            <span class="bg-amber-600 text-white px-2 py-0.5 rounded-lg border border-white">START</span>
+            <span id="b1-rival-badge" class="bg-white/95 text-sky-900 px-2 py-0.5 rounded-full border border-sky-400 truncate max-w-[120px]">Lawan: 0%</span>
+            <span class="bg-rose-500 text-white px-2 py-0.5 rounded-lg border border-white flag-banner-wave">FINISH 🏁</span>
+          </div>
+          <div class="w-full h-2 fence-3d-rail rounded-t-lg z-10"></div>
+          <div class="relative w-full h-14 sm:h-16 track-plane-3d rounded-b-2xl flex items-center px-2">
+            <div class="w-full track-lane-lines"></div>
+            <div class="absolute right-2 top-0 bottom-0 w-4 checkered-flag-3d border-x border-amber-500"></div>
+            <!-- Penanda Mini Posisi Lawan (P1) di Lintasan -->
+            <div id="b1-rival-marker" class="absolute top-1 z-20 transition-all duration-500 ease-out pointer-events-none" style="left: 1%;">
+              <span class="bg-sky-500 border border-white text-white font-display font-bold text-[9px] px-1.5 py-0 rounded-full shadow-2xs">P1 🐔</span>
+            </div>
+          </div>
+          <div id="b1-racer-wrap" class="absolute bottom-1.5 z-30 transition-all duration-500 ease-out" style="left: 1%;">
+            <div class="flex flex-col items-center">
+              <span id="b1-track-name" class="mb-0 bg-white/95 border border-amber-500 text-amber-950 font-display font-bold text-[10px] px-1.5 py-0 rounded-full shadow-2xs whitespace-nowrap max-w-[85px] truncate">
+                Si Kuning
+              </span>
+              <div id="b1-chicken" class="w-12 h-12 sm:w-14 sm:h-14 chicken-idle-3d"></div>
+              <div id="b1-shadow" class="w-9 h-2 rounded-full bg-amber-950/35 -mt-1.5 chicken-shadow-idle"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kartu Soal P2 (Menempel Langsung di Bawah Lintasan P2) -->
+        <div class="flex-1 bg-white/95 border-3 border-white rounded-2xl p-2 sm:p-2.5 flex flex-col justify-between shadow-[0_5px_0_rgba(180,83,9,0.28)] min-h-0">
+          <div class="my-auto text-center px-1">
+            <p id="b1-question-text" class="font-display font-bold text-xs sm:text-base md:text-lg text-slate-900 leading-snug">
+              Memuat soal...
+            </p>
+          </div>
+          <div id="b1-feedback" class="hidden my-0.5 px-2 py-0.5 rounded-xl text-center font-display font-bold text-[11px] sm:text-xs border-2 shrink-0"></div>
+          <div id="b1-options" class="grid grid-cols-1 sm:grid-cols-2 gap-1.5 mt-1 shrink-0">
+            <!-- Opsi P2 -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- LAYAR 4: HASIL AKHIR (PODIUM 3D BERKONFETI)                           -->
+  <!-- ===================================================================== -->
+  <section id="screen-result" class="hidden relative z-10 w-full h-full flex flex-col items-center justify-center p-3 sm:p-6">
+    <div class="relative overflow-hidden w-full max-w-3xl card-3d-bright rounded-[2rem] p-5 sm:p-8 text-center animate-pop-3d max-h-[92vh] overflow-y-auto custom-scroll">
+      <!-- Konfeti Warna-warni -->
+      <div id="confetti-container" class="pointer-events-none absolute inset-0 overflow-hidden"></div>
+
+      <div class="relative z-10">
+        <div class="inline-block bg-gradient-to-r from-emerald-500 to-teal-500 border-3 border-white text-white font-display font-bold text-xl sm:text-3xl px-6 py-2 rounded-2xl shadow-[0_5px_0_#0f766e] mb-2">
+          🎉 ALHAMDULILLAH, SELESAI! 🎉
+        </div>
+        <h2 id="result-headline" class="font-display font-bold text-2xl sm:text-4xl text-sky-900 mt-1">
+          Hebat Sekali!
+        </h2>
+        <p id="result-subheadline" class="text-slate-600 font-extrabold text-sm sm:text-base mt-1">
+          Paket 1: Pengertian & Macam-Macam Sholat Fardhu
+        </p>
+
+        <!-- Kontainer Detail Hasil (Diisi dinamis untuk Solo atau Battle) -->
+        <div id="result-body" class="my-4 sm:my-6"></div>
+
+        <!-- 3 Tombol Navigasi Akhir 3D -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 mt-4">
+          <button onclick="startGame()" class="btn-3d btn-3d-emerald text-white font-display font-bold py-3.5 px-4 rounded-2xl text-base sm:text-lg flex items-center justify-center gap-2">
+            <span>🔄</span> MAIN LAGI
+          </button>
+          <button onclick="showScreen('screen-setup')" class="btn-3d btn-3d-gold text-amber-950 font-display font-bold py-3.5 px-4 rounded-2xl text-base sm:text-lg flex items-center justify-center gap-2">
+            <span>📚</span> PILIH PAKET LAIN
+          </button>
+          <button onclick="showScreen('screen-home')" class="btn-3d btn-3d-sky text-white font-display font-bold py-3.5 px-4 rounded-2xl text-base sm:text-lg flex items-center justify-center gap-2">
+            <span>🏠</span> MENU UTAMA
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- OVERLAY COUNTDOWN 3 - 2 - 1 - MULAI!                                  -->
+  <!-- ===================================================================== -->
+  <div id="countdown-overlay" class="hidden fixed inset-0 z-40 bg-sky-950/50 backdrop-blur-xs flex items-center justify-center">
+    <div id="countdown-text" class="font-display font-bold text-7xl sm:text-9xl text-amber-300 drop-shadow-[0_10px_0_#b45309] animate-pop-3d">
+      3
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL PANDUAN SINGKAT                                                 -->
+  <!-- ===================================================================== -->
+  <div id="modal-guide" class="hidden fixed inset-0 z-50 bg-sky-950/55 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="card-3d-bright rounded-[2rem] max-w-xl w-full p-5 sm:p-6 animate-pop-3d">
+      <div class="flex items-center justify-between border-b-2 border-sky-100 pb-3">
+        <h3 class="font-display font-bold text-xl sm:text-2xl text-sky-900 flex items-center gap-2">
+          <span>📖</span> Panduan Bermain
+        </h3>
+        <button onclick="closeModal('modal-guide')" class="btn-3d btn-3d-coral text-white font-display font-bold w-9 h-9 rounded-xl">✕</button>
+      </div>
+      <div class="space-y-3 my-4 text-slate-800 font-extrabold text-sm sm:text-base">
+        <div class="bg-sky-50 p-3.5 rounded-2xl border-2 border-sky-200">
+          <span class="text-emerald-600 font-display text-lg">1. Pilih Mode:</span> Gunakan <b>Mode Solo</b> untuk latihan mandiri, atau <b>Battle 2 Pemain</b> untuk lomba dua siswa di layar sentuh / Papan Interaktif Digital (PID).
+        </div>
+        <div class="bg-amber-50 p-3.5 rounded-2xl border-2 border-amber-200">
+          <span class="text-sky-600 font-display text-lg">2. Pilih Paket & Jumlah Soal:</span> Tersedia 5 paket materi Sholat Fardhu Kelas 2 SD (10, 15, atau 20 soal).
+        </div>
+        <div class="bg-emerald-50 p-3.5 rounded-2xl border-2 border-emerald-200">
+          <span class="text-amber-600 font-display text-lg">3. Jawab Tepat, Ayam Melompat 3D!</span> Setiap jawaban <b>BENAR</b> membuat ayam melompat maju menuju garis finish dan menambah 100 poin.
+        </div>
+      </div>
+      <button onclick="closeModal('modal-guide')" class="w-full btn-3d btn-3d-emerald text-white font-display font-bold py-3.5 rounded-2xl text-lg">
+        SIAP BERMAIN! 👍
+      </button>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL RIWAYAT SKOR                                                    -->
+  <!-- ===================================================================== -->
+  <div id="modal-history" class="hidden fixed inset-0 z-50 bg-sky-950/55 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="card-3d-bright rounded-[2rem] max-w-2xl w-full p-5 sm:p-6 animate-pop-3d max-h-[85vh] flex flex-col">
+      <div class="flex items-center justify-between border-b-2 border-sky-100 pb-3">
+        <h3 class="font-display font-bold text-xl sm:text-2xl text-sky-900 flex items-center gap-2">
+          <span>🏆</span> Riwayat Skor Balapan
+        </h3>
+        <button onclick="closeModal('modal-history')" class="btn-3d btn-3d-coral text-white font-display font-bold w-9 h-9 rounded-xl">✕</button>
+      </div>
+      <div id="history-content" class="my-4 overflow-y-auto custom-scroll space-y-2.5 flex-1">
+        <!-- Diisi via JS -->
+      </div>
+      <div class="flex items-center justify-between gap-3 pt-2 border-t-2 border-sky-100">
+        <button onclick="clearHistory()" class="btn-3d btn-3d-coral text-white font-display font-bold px-4 py-2.5 rounded-2xl text-sm">
+          🗑️ Hapus Riwayat
+        </button>
+        <button onclick="closeModal('modal-history')" class="btn-3d btn-3d-sky text-white font-display font-bold px-6 py-2.5 rounded-2xl text-base">
+          Tutup
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL KONFIRMASI KEMBALI KE MENU SAAT GAME BERJALAN                   -->
+  <!-- ===================================================================== -->
+  <div id="modal-confirm-exit" class="hidden fixed inset-0 z-50 bg-sky-950/55 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="card-3d-bright rounded-[2rem] max-w-md w-full p-6 text-center animate-pop-3d">
+      <div class="text-5xl mb-2">🐔❓</div>
+      <h3 class="font-display font-bold text-2xl text-sky-950">Keluar dari Balapan?</h3>
+      <p class="text-slate-600 font-extrabold text-sm sm:text-base mt-1">
+        Permainan yang sedang berlangsung akan dihentikan.
+      </p>
+      <div class="grid grid-cols-2 gap-3 mt-5">
+        <button onclick="closeModal('modal-confirm-exit')" class="btn-3d btn-3d-emerald text-white font-display font-bold py-3 rounded-2xl text-base">
+          Lanjut Main
+        </button>
+        <button onclick="exitToHome()" class="btn-3d btn-3d-coral text-white font-display font-bold py-3 rounded-2xl text-base">
+          Ya, Keluar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- JAVASCRIPT: AUDIO, BANK SOAL (52 SOAL), & LOGIKA GAME 3D              -->
+  <!-- ===================================================================== -->
+  <script>
+    /* =======================================================================
+       1. SISTEM AUDIO WEB AUDIO API (TANPA FILE EKSTERNAL)
+       ======================================================================= */
+    let audioEnabled = true;
+    let audioCtx = null;
+
+    function initAudio() {
+      if (!audioCtx) {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (AudioContextClass) {
+          audioCtx = new AudioContextClass();
+        }
+      }
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+    }
+
+    function toggleAudio() {
+      audioEnabled = !audioEnabled;
+      const btn = document.getElementById('btn-audio');
+      btn.textContent = audioEnabled ? '🔊' : '🔇';
+      if (audioEnabled) {
+        initAudio();
+        playTone(660, 0.08, 'sine', 0.15);
+      }
+    }
+
+    function playTone(freq, duration, type = 'sine', volume = 0.2, delay = 0) {
+      if (!audioEnabled) return;
+      initAudio();
+      if (!audioCtx) return;
+
+      const now = audioCtx.currentTime + delay;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = type;
+      osc.frequency.setValueAtTime(freq, now);
+
+      gain.gain.setValueAtTime(volume, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start(now);
+      osc.stop(now + duration);
+    }
+
+    const SFX = {
+      click() {
+        playTone(560, 0.07, 'triangle', 0.18);
+      },
+      countdown(isGo = false) {
+        if (isGo) {
+          playTone(523.25, 0.12, 'triangle', 0.25, 0);
+          playTone(659.25, 0.12, 'triangle', 0.25, 0.08);
+          playTone(783.99, 0.25, 'triangle', 0.3, 0.16);
+        } else {
+          playTone(440, 0.14, 'sine', 0.22);
+        }
+      },
+      correct() {
+        playTone(523.25, 0.11, 'triangle', 0.25, 0);
+        playTone(659.25, 0.11, 'triangle', 0.25, 0.09);
+        playTone(783.99, 0.18, 'triangle', 0.28, 0.18);
+      },
+      wrong() {
+        playTone(260, 0.16, 'sawtooth', 0.15, 0);
+        playTone(195, 0.24, 'sawtooth', 0.15, 0.14);
+      },
+      win() {
+        const notes = [523.25, 659.25, 783.99, 1046.5, 783.99, 1046.5];
+        const times = [0, 0.12, 0.24, 0.36, 0.54, 0.68];
+        notes.forEach((n, idx) => {
+          playTone(n, 0.22, 'triangle', 0.28, times[idx]);
+        });
+      },
+      colorPick() {
+        playTone(620, 0.08, 'sine', 0.2, 0);
+        playTone(840, 0.11, 'triangle', 0.22, 0.06);
+      }
+    };
+
+    /* =======================================================================
+       2. PALET 6 WARNA AYAM 3D & GENERATOR ILUSTRASI SVG 3D
+       ======================================================================= */
+    const CHICKEN_COLORS = [
+      {
+        id: 'white',
+        name: 'Putih Salju',
+        swatch: 'linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%)',
+        ring: '#0284c7',
+        bodyStops: ['#ffffff', '#f1f5f9', '#cbd5e1'],
+        headStops: ['#ffffff', '#f8fafc', '#cbd5e1'],
+        stroke: '#475569',
+        comb: '#ef4444',
+        combStroke: '#991b1b',
+        cheek: '#fda4af',
+        accType: 'cap',
+        accStops: ['#38bdf8', '#1d4ed8'],
+        accStroke: '#1e3a8a',
+        accTrim: '#fde047'
+      },
+      {
+        id: 'gold',
+        name: 'Kuning Emas',
+        swatch: 'linear-gradient(135deg, #fef08a 0%, #f59e0b 100%)',
+        ring: '#d97706',
+        bodyStops: ['#fef08a', '#facc15', '#ea580c'],
+        headStops: ['#fef9c3', '#fde047', '#f59e0b'],
+        stroke: '#9a3412',
+        comb: '#f97316',
+        combStroke: '#9a3412',
+        cheek: '#fb7185',
+        accType: 'scarf',
+        accStops: ['#34d399', '#059669'],
+        accStroke: '#065f46',
+        accTrim: '#fef08a'
+      },
+      {
+        id: 'crimson',
+        name: 'Merah Bata',
+        swatch: 'linear-gradient(135deg, #fda4af 0%, #e11d48 100%)',
+        ring: '#be123c',
+        bodyStops: ['#fecdd3', '#fb7185', '#be123c'],
+        headStops: ['#ffe4e6', '#fda4af', '#e11d48'],
+        stroke: '#881337',
+        comb: '#facc15',
+        combStroke: '#a16207',
+        cheek: '#fef08a',
+        accType: 'cap',
+        accStops: ['#fde047', '#f59e0b'],
+        accStroke: '#92400e',
+        accTrim: '#ffffff'
+      },
+      {
+        id: 'sky',
+        name: 'Biru Langit',
+        swatch: 'linear-gradient(135deg, #bae6fd 0%, #0284c7 100%)',
+        ring: '#0369a1',
+        bodyStops: ['#e0f2fe', '#38bdf8', '#0369a1'],
+        headStops: ['#f0f9ff', '#7dd3fc', '#0284c7'],
+        stroke: '#0c4a6e',
+        comb: '#fb7185',
+        combStroke: '#9f1239',
+        cheek: '#fda4af',
+        accType: 'scarf',
+        accStops: ['#fde047', '#f59e0b'],
+        accStroke: '#92400e',
+        accTrim: '#ffffff'
+      },
+      {
+        id: 'emerald',
+        name: 'Hijau Zamrud',
+        swatch: 'linear-gradient(135deg, #a7f3d0 0%, #059669 100%)',
+        ring: '#047857',
+        bodyStops: ['#d1fae5', '#34d399', '#047857'],
+        headStops: ['#ecfdf5', '#6ee7b7', '#10b981'],
+        stroke: '#064e3b',
+        comb: '#f97316',
+        combStroke: '#9a3412',
+        cheek: '#fda4af',
+        accType: 'cap',
+        accStops: ['#ffffff', '#e2e8f0'],
+        accStroke: '#065f46',
+        accTrim: '#10b981'
+      },
+      {
+        id: 'purple',
+        name: 'Ungu Ceria',
+        swatch: 'linear-gradient(135deg, #f5d0fe 0%, #9333ea 100%)',
+        ring: '#7e22ce',
+        bodyStops: ['#fae8ff', '#e879f9', '#9333ea'],
+        headStops: ['#fdf4ff', '#f0abfc', '#a855f7'],
+        stroke: '#581c87',
+        comb: '#fde047',
+        combStroke: '#a16207',
+        cheek: '#fbcfe8',
+        accType: 'scarf',
+        accStops: ['#38bdf8', '#0284c7'],
+        accStroke: '#075985',
+        accTrim: '#fef08a'
+      }
+    ];
+
+    function getChickenSVG(colorId = 'white', uidSuffix = '0') {
+      const c = CHICKEN_COLORS.find(item => item.id === colorId) || CHICKEN_COLORS[0];
+      const uid = `${c.id}_${uidSuffix}`;
+
+      const accessoryMarkup = c.accType === 'cap'
+        ? `
+          <!-- Topi Sport 3D -->
+          <path d="M54 28 Q75 13 94 28 L107 31 Q94 35 54 31 Z" fill="url(#accGrad_${uid})" stroke="${c.accStroke}" stroke-width="2.2"/>
+          <path d="M61 25 Q75 19 88 25" stroke="${c.accTrim}" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        `
+        : `
+          <!-- Syal Leher 3D -->
+          <path d="M54 55 Q75 63 92 54 L88 64 Q71 70 53 63 Z" fill="url(#accGrad_${uid})" stroke="${c.accStroke}" stroke-width="2"/>
+        `;
+
+      return `
+        <svg viewBox="0 0 120 120" class="w-full h-full drop-shadow-[0_6px_6px_rgba(15,23,42,0.28)] overflow-visible">
+          <defs>
+            <radialGradient id="body3D_${uid}" cx="42%" cy="35%" r="60%">
+              <stop offset="0%" stop-color="${c.bodyStops[0]}"/>
+              <stop offset="62%" stop-color="${c.bodyStops[1]}"/>
+              <stop offset="100%" stop-color="${c.bodyStops[2]}"/>
+            </radialGradient>
+            <radialGradient id="head3D_${uid}" cx="40%" cy="32%" r="62%">
+              <stop offset="0%" stop-color="${c.headStops[0]}"/>
+              <stop offset="68%" stop-color="${c.headStops[1]}"/>
+              <stop offset="100%" stop-color="${c.headStops[2]}"/>
+            </radialGradient>
+            <linearGradient id="accGrad_${uid}" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="${c.accStops[0]}"/>
+              <stop offset="100%" stop-color="${c.accStops[1]}"/>
+            </linearGradient>
+            <linearGradient id="beak3D_${uid}" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#fde047"/>
+              <stop offset="100%" stop-color="#ea580c"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Kaki Kiri & Kanan Animasi Berlari -->
+          <g class="leg-l">
+            <path d="M48 92 L46 111 M38 111 L53 111" stroke="#f97316" stroke-width="5.5" stroke-linecap="round"/>
+          </g>
+          <g class="leg-r">
+            <path d="M68 92 L70 111 M62 111 L77 111" stroke="#ea580c" stroke-width="5.5" stroke-linecap="round"/>
+          </g>
+
+          <!-- Ekor 3D -->
+          <path d="M23 68 Q6 52 17 42 Q24 53 30 57 Q13 40 26 34 Q35 47 37 58 Z" fill="url(#body3D_${uid})" stroke="${c.stroke}" stroke-width="2.5"/>
+
+          <!-- Badan 3D Bulat -->
+          <ellipse cx="59" cy="70" rx="33" ry="28" fill="url(#body3D_${uid})" stroke="${c.stroke}" stroke-width="2.8"/>
+          <!-- Specular Highlight Badan -->
+          <ellipse cx="50" cy="56" rx="14" ry="7" transform="rotate(-18 50 56)" fill="#ffffff" opacity="0.72"/>
+
+          <!-- Kepala 3D -->
+          <circle cx="75" cy="40" r="22" fill="url(#head3D_${uid})" stroke="${c.stroke}" stroke-width="2.8"/>
+
+          <!-- Jengger 3D -->
+          <path d="M65 19 Q68 6 75 15 Q81 4 87 16 Q93 11 89 22 Z" fill="${c.comb}" stroke="${c.combStroke}" stroke-width="2"/>
+
+          ${accessoryMarkup}
+
+          <!-- Mata Ekspresif + Kilau -->
+          <circle cx="82" cy="38" r="4.5" fill="#0f172a"/>
+          <circle cx="83.6" cy="36.2" r="1.7" fill="#ffffff"/>
+
+          <!-- Pipi Merona -->
+          <ellipse cx="74" cy="46" rx="4.5" ry="3.2" fill="${c.cheek}" opacity="0.88"/>
+
+          <!-- Paruh 3D & Pial -->
+          <polygon points="94,37 110,43 94,49" fill="url(#beak3D_${uid})" stroke="#9a3412" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M90 49 Q89 58 95 57 Q99 54 95 49 Z" fill="#ef4444" stroke="#991b1b" stroke-width="1.8"/>
+
+          <!-- Sayap 3D -->
+          <path class="wing-3d" d="M43 62 Q65 55 69 75 Q54 85 41 74 Z" fill="url(#body3D_${uid})" stroke="${c.stroke}" stroke-width="2.5"/>
+        </svg>
+      `;
+    }
+
+    /* =======================================================================
+       3. BANK SOAL PAI KELAS 2 SD: SHOLAT FARDHU (52 SOAL AKURAT & RAMAH ANAK)
+       ======================================================================= */
+    const PACKETS = [
+      {
+        id: 1,
+        title: "Paket 1: Pengertian & Macam Sholat Fardhu",
+        shortTitle: "Pengertian & Macam Sholat",
+        icon: "🕌",
+        desc: "Hukum, nama 5 sholat wajib, waktu & jumlah rakaat."
+      },
+      {
+        id: 2,
+        title: "Paket 2: Syarat Wajib & Syarat Sah Sholat",
+        shortTitle: "Syarat Wajib & Syarat Sah",
+        icon: "🧼",
+        desc: "Islam, baligh, berakal, suci, tutup aurat & kiblat."
+      },
+      {
+        id: 3,
+        title: "Paket 3: Rukun & Sunnah Sholat",
+        shortTitle: "Rukun & Sunnah Sholat",
+        icon: "🤲",
+        desc: "Takbiratul ihram, Al-Fatihah, ruku, sujud & sunnah."
+      },
+      {
+        id: 4,
+        title: "Paket 4: Pembatal & Manfaat Sholat",
+        shortTitle: "Pembatal & Manfaat Sholat",
+        icon: "✨",
+        desc: "Hal yang membatalkan sholat & hikmah rajin sholat."
+      },
+      {
+        id: 5,
+        title: "Paket 5: Tantangan Campuran Semua Materi",
+        shortTitle: "Tantangan Campuran",
+        icon: "🏆",
+        desc: "Gabungan seluruh soal Sholat Fardhu Kelas 2 SD."
+      }
+    ];
+
+    const QUESTION_BANK = [
+      // --- PAKET 1: PENGERTIAN & MACAM-MACAM SHOLAT FARDHU (13 Soal) ---
+      {
+        packet: 1,
+        subtopic: "Pengertian Sholat Fardhu",
+        q: "Sholat fardhu adalah sholat yang hukumnya ... dikerjakan oleh umat Islam.",
+        options: ["Wajib", "Sunnah", "Makruh", "Boleh ditinggal"],
+        answer: 0
+      },
+      {
+        packet: 1,
+        subtopic: "Pengertian Sholat Fardhu",
+        q: "Ibadah sholat fardhu diawali dengan takbiratul ihram dan diakhiri dengan ...",
+        options: ["Ruku", "Sujud", "Salam", "Doa iftitah"],
+        answer: 2
+      },
+      {
+        packet: 1,
+        subtopic: "Pengertian Sholat Fardhu",
+        q: "Sholat fardhu lima waktu merupakan rukun Islam yang ke-...",
+        options: ["Satu", "Dua", "Tiga", "Empat"],
+        answer: 1
+      },
+      {
+        packet: 1,
+        subtopic: "Pengertian Sholat Fardhu",
+        q: "Jika seorang muslim dengan sengaja meninggalkan sholat fardhu, maka ia akan mendapat ...",
+        options: ["Hadiah", "Pahala besar", "Dosa", "Pujian"],
+        answer: 2
+      },
+      {
+        packet: 1,
+        subtopic: "Macam-Macam Sholat Fardhu",
+        q: "Dalam sehari semalam, umat Islam wajib mengerjakan sholat fardhu sebanyak ... waktu.",
+        options: ["3 waktu", "4 waktu", "5 waktu", "6 waktu"],
+        answer: 2
+      },
+      {
+        packet: 1,
+        subtopic: "Macam-Macam Sholat Fardhu",
+        q: "Jumlah seluruh rakaat sholat fardhu dalam sehari semalam adalah ... rakaat.",
+        options: ["15 rakaat", "17 rakaat", "19 rakaat", "20 rakaat"],
+        answer: 1
+      },
+      {
+        packet: 1,
+        subtopic: "Macam-Macam Sholat Fardhu",
+        q: "Sholat fardhu yang dikerjakan pada waktu pagi sebelum matahari terbit adalah sholat ...",
+        options: ["Subuh", "Dzuhur", "Ashar", "Isya"],
+        answer: 0
+      },
+      {
+        packet: 1,
+        subtopic: "Jumlah Rakaat Sholat",
+        q: "Sholat Subuh dikerjakan sebanyak ... rakaat.",
+        options: ["2 rakaat", "3 rakaat", "4 rakaat", "5 rakaat"],
+        answer: 0
+      },
+      {
+        packet: 1,
+        subtopic: "Macam-Macam Sholat Fardhu",
+        q: "Sholat fardhu yang dikerjakan pada waktu siang hari berjumlah 4 rakaat adalah sholat ...",
+        options: ["Subuh", "Dzuhur", "Maghrib", "Tarawih"],
+        answer: 1
+      },
+      {
+        packet: 1,
+        subtopic: "Jumlah Rakaat Sholat",
+        q: "Sholat Ashar dikerjakan pada waktu sore hari sebanyak ... rakaat.",
+        options: ["2 rakaat", "3 rakaat", "4 rakaat", "6 rakaat"],
+        answer: 2
+      },
+      {
+        packet: 1,
+        subtopic: "Jumlah Rakaat Sholat",
+        q: "Sholat fardhu yang jumlahnya 3 rakaat dan dikerjakan setelah matahari terbenam adalah ...",
+        options: ["Subuh", "Dzuhur", "Ashar", "Maghrib"],
+        answer: 3
+      },
+      {
+        packet: 1,
+        subtopic: "Macam-Macam Sholat Fardhu",
+        q: "Sholat fardhu yang dikerjakan pada waktu malam hari sebanyak 4 rakaat adalah sholat ...",
+        options: ["Isya", "Subuh", "Maghrib", "Dhuha"],
+        answer: 0
+      },
+      {
+        packet: 1,
+        subtopic: "Macam-Macam Sholat Fardhu",
+        q: "Urutan sholat fardhu yang benar setelah sholat Dzuhur adalah sholat ...",
+        options: ["Subuh", "Ashar", "Isya", "Maghrib"],
+        answer: 1
+      },
+
+      // --- PAKET 2: SYARAT WAJIB & SYARAT SAH SHOLAT (13 Soal) ---
+      {
+        packet: 2,
+        subtopic: "Syarat Wajib Sholat",
+        q: "Berikut ini yang termasuk syarat wajib sholat adalah ...",
+        options: ["Beragama Islam", "Membaca surat pendek", "Memakai baju baru", "Sholat di masjid"],
+        answer: 0
+      },
+      {
+        packet: 2,
+        subtopic: "Syarat Wajib Sholat",
+        q: "Selain beragama Islam dan berakal sehat, syarat wajib sholat adalah sudah ...",
+        options: ["Kaya raya", "Baligh (dewasa)", "Hafal Al-Qur'an", "Menikah"],
+        answer: 1
+      },
+      {
+        packet: 2,
+        subtopic: "Syarat Wajib Sholat",
+        q: "Orang yang sedang hilang akal atau gila ... mengerjakan sholat fardhu.",
+        options: ["Wajib", "Tidak wajib", "Harus dipaksa", "Berdosa jika tidak"],
+        answer: 1
+      },
+      {
+        packet: 2,
+        subtopic: "Syarat Wajib Sholat",
+        q: "Anak kecil kelas 2 SD yang belum baligh sebaiknya ... mengerjakan sholat sejak dini.",
+        options: ["Dilarang", "Dilatih dan dibiasakan", "Dibiarkan saja", "Dimarahi"],
+        answer: 1
+      },
+      {
+        packet: 2,
+        subtopic: "Syarat Sah Sholat",
+        q: "Sebelum mengerjakan sholat, badan kita harus suci dari hadas kecil dengan cara ...",
+        options: ["Mandi lumpur", "Berwudhu", "Cuci tangan saja", "Berlari"],
+        answer: 1
+      },
+      {
+        packet: 2,
+        subtopic: "Syarat Sah Sholat",
+        q: "Badan, pakaian, dan tempat sholat kita harus suci dari ...",
+        options: ["Air", "Najis", "Debu bersih", "Wangi-wangian"],
+        answer: 1
+      },
+      {
+        packet: 2,
+        subtopic: "Syarat Sah Sholat",
+        q: "Saat sholat, seluruh umat Islam di dunia wajib menghadap ke arah ...",
+        options: ["Timur", "Utara", "Kiblat (Ka'bah)", "Selatan"],
+        answer: 2
+      },
+      {
+        packet: 2,
+        subtopic: "Syarat Sah Sholat",
+        q: "Salah satu syarat sah sholat adalah menutup ...",
+        options: ["Mata", "Aurat", "Telinga", "Wajah"],
+        answer: 1
+      },
+      {
+        packet: 2,
+        subtopic: "Syarat Sah Sholat",
+        q: "Batas aurat laki-laki saat sholat adalah dari pusar sampai ...",
+        options: ["Leher", "Dada", "Lutut", "Mata kaki"],
+        answer: 2
+      },
+      {
+        packet: 2,
+        subtopic: "Syarat Sah Sholat",
+        q: "Aurat perempuan saat sholat adalah seluruh tubuh kecuali wajah dan ...",
+        options: ["Rambut", "Telapak tangan", "Kaki", "Lengan"],
+        answer: 1
+      },
+      {
+        packet: 2,
+        subtopic: "Syarat Sah Sholat",
+        q: "Sholat yang dikerjakan sebelum masuk waktunya maka sholatnya ...",
+        options: ["Sah", "Tidak sah", "Lebih baik", "Sunnah"],
+        answer: 1
+      },
+      {
+        packet: 2,
+        subtopic: "Syarat Sah Sholat",
+        q: "Tanda telah masuk waktu sholat biasanya ditandai dengan berkumandangnya suara ...",
+        options: ["Lonceng", "Adzan", "Peluit", "Musik"],
+        answer: 1
+      },
+      {
+        packet: 2,
+        subtopic: "Syarat Sah Sholat",
+        q: "Pakaian yang terkena kotoran cicak atau air kencing tidak sah dipakai sholat karena terkena ...",
+        options: ["Keringat", "Najis", "Air hujan", "Parfum"],
+        answer: 1
+      },
+
+      // --- PAKET 3: RUKUN & SUNNAH SHOLAT (13 Soal) ---
+      {
+        packet: 3,
+        subtopic: "Rukun Sholat",
+        q: "Rukun sholat adalah gerakan dan bacaan pokok dalam sholat yang ... ditinggalkan.",
+        options: ["Boleh", "Tidak boleh", "Sunnah", "Mudah"],
+        answer: 1
+      },
+      {
+        packet: 3,
+        subtopic: "Rukun Sholat",
+        q: "Rukun sholat yang pertama kali dilakukan di dalam hati adalah ...",
+        options: ["Salam", "Niat", "Ruku", "Sujud"],
+        answer: 1
+      },
+      {
+        packet: 3,
+        subtopic: "Rukun Sholat",
+        q: "Mengucapkan 'Allahu Akbar' saat memulai sholat disebut ...",
+        options: ["Takbiratul ihram", "Tasyahud", "Salam", "I'tidal"],
+        answer: 0
+      },
+      {
+        packet: 3,
+        subtopic: "Rukun Sholat",
+        q: "Surat dalam Al-Qur'an yang wajib dibaca pada setiap rakaat sholat adalah surat ...",
+        options: ["Al-Ikhlas", "Al-Fatihah", "An-Nas", "Al-Kautsar"],
+        answer: 1
+      },
+      {
+        packet: 3,
+        subtopic: "Rukun Sholat",
+        q: "Gerakan membungkukkan badan dengan kedua tangan memegang lutut disebut ...",
+        options: ["Sujud", "Ruku", "I'tidal", "Duduk iftirasy"],
+        answer: 1
+      },
+      {
+        packet: 3,
+        subtopic: "Rukun Sholat",
+        q: "Bangun dari ruku dan berdiri tegak kembali sebelum sujud disebut ...",
+        options: ["I'tidal", "Takbir", "Tasyahud", "Salam"],
+        answer: 0
+      },
+      {
+        packet: 3,
+        subtopic: "Rukun Sholat",
+        q: "Dalam satu rakaat sholat, gerakan sujud dilakukan sebanyak ... kali.",
+        options: ["1 kali", "2 kali", "3 kali", "4 kali"],
+        answer: 1
+      },
+      {
+        packet: 3,
+        subtopic: "Rukun Sholat",
+        q: "Sikap tenang sejenak pada setiap gerakan rukun sholat seperti ruku dan sujud disebut ...",
+        options: ["Tuma'ninah", "Tergesa-gesa", "Istirahat", "Takbir"],
+        answer: 0
+      },
+      {
+        packet: 3,
+        subtopic: "Rukun Sholat",
+        q: "Rukun sholat yang paling terakhir dengan menoleh ke kanan dan ke kiri adalah ...",
+        options: ["Niat", "Sujud", "Membaca salam", "Ruku"],
+        answer: 2
+      },
+      {
+        packet: 3,
+        subtopic: "Sunnah Sholat",
+        q: "Amalan sunnah dalam sholat jika dikerjakan mendapat pahala, dan jika tertinggal sholatnya tetap ...",
+        options: ["Batal", "Sah", "Berdosa", "Harus diulang"],
+        answer: 1
+      },
+      {
+        packet: 3,
+        subtopic: "Sunnah Sholat",
+        q: "Membaca doa iftitah setelah takbiratul ihram termasuk ... sholat.",
+        options: ["Rukun", "Sunnah", "Syarat sah", "Pembatal"],
+        answer: 1
+      },
+      {
+        packet: 3,
+        subtopic: "Sunnah Sholat",
+        q: "Membaca surat pendek seperti Al-Ikhlas setelah surat Al-Fatihah hukumnya ... sholat.",
+        options: ["Rukun", "Sunnah", "Wajib", "Makruh"],
+        answer: 1
+      },
+      {
+        packet: 3,
+        subtopic: "Sunnah Sholat",
+        q: "Mengangkat kedua tangan sejajar telinga atau bahu saat takbiratul ihram termasuk ... sholat.",
+        options: ["Sunnah", "Pembatal", "Syarat wajib", "Larangan"],
+        answer: 0
+      },
+
+      // --- PAKET 4: HAL YANG MEMBATALKAN & MANFAAT SHOLAT (13 Soal) ---
+      {
+        packet: 4,
+        subtopic: "Hal yang Membatalkan Sholat",
+        q: "Jika saat sholat kita berbicara atau mengobrol dengan teman, maka sholat kita ...",
+        options: ["Tetap sah", "Batal", "Lebih khusyuk", "Mendapat bonus"],
+        answer: 1
+      },
+      {
+        packet: 4,
+        subtopic: "Hal yang Membatalkan Sholat",
+        q: "Makan atau minum dengan sengaja ketika sedang sholat menyebabkan sholat menjadi ...",
+        options: ["Sah", "Batal", "Sunnah", "Sempurna"],
+        answer: 1
+      },
+      {
+        packet: 4,
+        subtopic: "Hal yang Membatalkan Sholat",
+        q: "Keluar angin (kentut) saat sedang sholat akan membatalkan wudhu dan ... sholat.",
+        options: ["Menyempurnakan", "Membatalkan", "Melanjutkan", "Menguatkan"],
+        answer: 1
+      },
+      {
+        packet: 4,
+        subtopic: "Hal yang Membatalkan Sholat",
+        q: "Tertawa terbahak-bahak saat sedang mengerjakan sholat membuat sholat menjadi ...",
+        options: ["Sah", "Batal", "Bagus", "Tenang"],
+        answer: 1
+      },
+      {
+        packet: 4,
+        subtopic: "Hal yang Membatalkan Sholat",
+        q: "Bergerak banyak secara berturut-turut di luar gerakan sholat (misalnya melompat-lompat) dapat ... sholat.",
+        options: ["Membatalkan", "Menyehatkan", "Menambah pahala", "Mempercepat"],
+        answer: 0
+      },
+      {
+        packet: 4,
+        subtopic: "Hal yang Membatalkan Sholat",
+        q: "Apabila aurat terbuka dengan sengaja saat sedang sholat, maka sholatnya ...",
+        options: ["Sah", "Batal", "Tidak apa-apa", "Dilanjutkan saja"],
+        answer: 1
+      },
+      {
+        packet: 4,
+        subtopic: "Hal yang Membatalkan Sholat",
+        q: "Memalingkan dada dari arah kiblat dengan sengaja ketika sholat menyebabkan sholat ...",
+        options: ["Batal", "Sah", "Khusyuk", "Sunnah"],
+        answer: 0
+      },
+      {
+        packet: 4,
+        subtopic: "Manfaat Sholat",
+        q: "Mengerjakan sholat fardhu tepat pada waktunya melatih kita hidup ...",
+        options: ["Bermalas-malasan", "Disiplin dan teratur", "Suka terlambat", "Sombong"],
+        answer: 1
+      },
+      {
+        packet: 4,
+        subtopic: "Manfaat Sholat",
+        q: "Sholat yang dikerjakan dengan khusyuk dapat mencegah kita dari perbuatan keji dan ...",
+        options: ["Mungkar (buruk)", "Baik", "Terpuji", "Jujur"],
+        answer: 0
+      },
+      {
+        packet: 4,
+        subtopic: "Manfaat Sholat",
+        q: "Dengan rajin mengerjakan sholat, hati dan pikiran kita akan terasa lebih ...",
+        options: ["Gelisah", "Tenang dan damai", "Marah", "Takut"],
+        answer: 1
+      },
+      {
+        packet: 4,
+        subtopic: "Manfaat Sholat",
+        q: "Sholat adalah sarana seorang hamba untuk berdoa dan mendekatkan diri kepada ...",
+        options: ["Malaikat", "Allah Swt.", "Teman", "Guru"],
+        answer: 1
+      },
+      {
+        packet: 4,
+        subtopic: "Manfaat Sholat",
+        q: "Sebelum sholat kita berwudhu dan memakai pakaian bersih, sehingga sholat membiasakan kita hidup ...",
+        options: ["Kotor", "Bersih dan sehat", "Berantakan", "Boros"],
+        answer: 1
+      },
+      {
+        packet: 4,
+        subtopic: "Manfaat Sholat",
+        q: "Gerakan sholat seperti ruku dan sujud yang dilakukan dengan tertib juga bermanfaat bagi ... tubuh.",
+        options: ["Kesehatan dan kelenturan", "Kelelahan", "Penyakit", "Kemalasan"],
+        answer: 0
+      }
+    ];
+
+    /* =======================================================================
+       4. STATE PERMAINAN & PROFIL KUSTOMISASI AYAM
+       ======================================================================= */
+    const state = {
+      mode: 'solo', // 'solo' | 'battle'
+      packetId: 1,
+      questionCount: 10,
+      startTime: 0,
+      timerInterval: null,
+      isCountdown: false,
+      profiles: [
+        { name: 'Si Putih', color: 'white' },
+        { name: 'Si Kuning', color: 'gold' }
+      ],
+      players: []
+    };
+
+    function getPlayerDisplayName(idx) {
+      const fallback = idx === 0 ? 'Si Putih' : 'Si Kuning';
+      const raw = (state.profiles[idx]?.name || '').trim();
+      return raw.length > 0 ? raw : fallback;
+    }
+
+    /* =======================================================================
+       5. INISIALISASI UI AWAL & KUSTOMISASI PEMAIN
+       ======================================================================= */
+    window.addEventListener('DOMContentLoaded', () => {
+      refreshHomePreview();
+      renderPacketCards();
+      selectQuestionCount(10);
+    });
+
+    function refreshHomePreview() {
+      const p0Color = state.profiles[0].color;
+      const p1Color = state.profiles[1].color;
+      document.getElementById('home-chicken-1').innerHTML = getChickenSVG(p0Color, 'home0');
+      document.getElementById('home-chicken-2').innerHTML = getChickenSVG(p1Color, 'home1');
+      document.getElementById('home-label-1').textContent = `Pemain 1: ${getPlayerDisplayName(0)}`;
+      document.getElementById('home-label-2').textContent = `Pemain 2: ${getPlayerDisplayName(1)}`;
+    }
+
+    function showScreen(screenId) {
+      ['screen-home', 'screen-setup', 'screen-game', 'screen-result'].forEach(id => {
+        document.getElementById(id).classList.add('hidden');
+      });
+      document.getElementById(screenId).classList.remove('hidden');
+
+      if (screenId === 'screen-home') {
+        refreshHomePreview();
+      }
+
+      const homeTopBtn = document.getElementById('btn-home-top');
+      if (screenId === 'screen-game') {
+        homeTopBtn.classList.remove('hidden');
+      } else {
+        homeTopBtn.classList.add('hidden');
+        stopTimer();
+      }
+    }
+
+    function openModal(id) {
+      SFX.click();
+      document.getElementById(id).classList.remove('hidden');
+    }
+
+    function closeModal(id) {
+      SFX.click();
+      document.getElementById(id).classList.add('hidden');
+    }
+
+    function confirmBackToMenu() {
+      openModal('modal-confirm-exit');
+    }
+
+    function exitToHome() {
+      closeModal('modal-confirm-exit');
+      stopTimer();
+      showScreen('screen-home');
+    }
+
+    function selectMode(mode) {
+      SFX.click();
+      state.mode = mode;
+      const badge = document.getElementById('setup-mode-badge');
+      if (mode === 'solo') {
+        badge.textContent = '🏃‍♂️ MODE SOLO (1 PEMAIN)';
+        badge.className = 'bg-gradient-to-b from-emerald-400 to-emerald-600 border-3 border-white text-white font-display font-bold px-5 py-1.5 rounded-full text-xs sm:text-base shadow-[0_4px_0_#065f46]';
+      } else {
+        badge.textContent = '⚔️ MODE BATTLE (2 PEMAIN)';
+        badge.className = 'bg-gradient-to-b from-sky-400 to-blue-600 border-3 border-white text-white font-display font-bold px-5 py-1.5 rounded-full text-xs sm:text-base shadow-[0_4px_0_#0369a1]';
+      }
+      renderPlayerCustomizers();
+      showScreen('screen-setup');
+    }
+
+    function renderPlayerCustomizers() {
+      const container = document.getElementById('customizer-container');
+      const count = state.mode === 'solo' ? 1 : 2;
+      container.className = count === 1
+        ? 'grid grid-cols-1 gap-3 mt-2'
+        : 'grid grid-cols-1 md:grid-cols-2 gap-3 mt-2';
+
+      let html = '';
+      for (let idx = 0; idx < count; idx++) {
+        const prof = state.profiles[idx];
+        const colorObj = CHICKEN_COLORS.find(c => c.id === prof.color) || CHICKEN_COLORS[0];
+        const cardBg = idx === 0
+          ? 'bg-gradient-to-br from-sky-50 via-white to-sky-100 border-sky-300'
+          : 'bg-gradient-to-br from-amber-50 via-white to-orange-100 border-amber-300';
+        const badgeBg = idx === 0
+          ? 'bg-sky-500 text-white'
+          : 'bg-amber-500 text-amber-950';
+
+        const swatchesHtml = CHICKEN_COLORS.map(c => {
+          const active = c.id === prof.color;
+          return `
+            <button type="button" onclick="updatePlayerColor(${idx}, '${c.id}')" title="${c.name}"
+              style="background: ${c.swatch};"
+              class="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-3 transition-transform flex items-center justify-center shadow-sm ${
+                active
+                  ? 'border-slate-900 scale-115 ring-3 ring-amber-400'
+                  : 'border-white hover:scale-105'
+              }">
+              ${active ? '<span class="text-xs font-black text-slate-900 drop-shadow-[0_1px_0_#fff]">✓</span>' : ''}
+            </button>
+          `;
+        }).join('');
+
+        html += `
+          <div class="border-3 ${cardBg} rounded-3xl p-3 sm:p-3.5 flex items-center gap-3.5 shadow-[0_4px_0_rgba(148,163,184,0.35)]">
+            <!-- Pratinjau Langsung Ayam 3D -->
+            <div class="flex flex-col items-center shrink-0 w-24 sm:w-28 bg-white/85 rounded-2xl p-2 border-2 border-white shadow-inner">
+              <div id="custom-preview-svg-${idx}" class="w-16 h-16 sm:w-20 sm:h-20 chicken-idle-3d">
+                ${getChickenSVG(prof.color, `custom${idx}`)}
+              </div>
+              <div class="w-12 h-2.5 rounded-full bg-slate-900/20 -mt-1.5 chicken-shadow-idle"></div>
+              <span id="custom-preview-name-${idx}" class="mt-1.5 font-display font-bold text-xs text-slate-800 truncate max-w-full px-1">
+                ${escapeHtml(getPlayerDisplayName(idx))}
+              </span>
+            </div>
+
+            <!-- Input Nama & Pilihan 6 Warna Ayam -->
+            <div class="flex-1 min-w-0 space-y-2">
+              <div class="flex items-center justify-between gap-2">
+                <span class="${badgeBg} font-display font-bold text-xs px-3 py-0.5 rounded-full shadow-2xs">
+                  PEMAIN ${idx + 1}
+                </span>
+                <span id="custom-color-label-${idx}" class="text-xs font-extrabold text-slate-600">
+                  Warna: ${colorObj.name}
+                </span>
+              </div>
+
+              <div>
+                <label class="block text-xs font-extrabold text-slate-700 mb-1">Nama Ayam / Siswa:</label>
+                <input type="text" maxlength="16"
+                  value="${escapeHtml(prof.name)}"
+                  placeholder="${idx === 0 ? 'Contoh: Ahmad / Si Putih' : 'Contoh: Fatimah / Si Kuning'}"
+                  oninput="updatePlayerName(${idx}, this.value)"
+                  class="w-full bg-white border-2 border-sky-300 focus:border-emerald-500 focus:outline-none rounded-xl px-3 py-1.5 font-display font-bold text-sm sm:text-base text-slate-900 shadow-2xs" />
+              </div>
+
+              <div>
+                <div class="text-xs font-extrabold text-slate-700 mb-1">Pilih Warna Bulu Ayam:</div>
+                <div class="flex flex-wrap items-center gap-2">
+                  ${swatchesHtml}
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      container.innerHTML = html;
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function updatePlayerName(idx, newName) {
+      state.profiles[idx].name = newName;
+      const labelEl = document.getElementById(`custom-preview-name-${idx}`);
+      if (labelEl) {
+        labelEl.textContent = getPlayerDisplayName(idx);
+      }
+    }
+
+    function updatePlayerColor(idx, colorId) {
+      SFX.colorPick();
+      state.profiles[idx].color = colorId;
+      renderPlayerCustomizers();
+    }
+
+    function renderPacketCards() {
+      const container = document.getElementById('packet-list');
+      container.innerHTML = PACKETS.map(pkt => {
+        const isSelected = pkt.id === state.packetId;
+        return `
+          <button onclick="selectPacket(${pkt.id})"
+            class="btn-3d text-left p-3.5 rounded-2xl border-3 transition-all flex items-start gap-3 ${
+              isSelected
+                ? 'bg-gradient-to-b from-emerald-300 to-emerald-500 border-white text-white shadow-[0_5px_0_#047857]'
+                : 'bg-gradient-to-b from-white to-sky-50 border-sky-200 text-slate-900 shadow-[0_5px_0_#94a3b8]'
+            }">
+            <span class="text-2xl sm:text-3xl bg-white w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 shadow-xs">
+              ${pkt.icon}
+            </span>
+            <div class="min-w-0">
+              <div class="font-display font-bold text-sm sm:text-base leading-tight ${isSelected ? 'text-white' : 'text-slate-900'}">
+                ${pkt.title}
+              </div>
+              <div class="text-xs font-extrabold mt-1 leading-snug ${isSelected ? 'text-emerald-50' : 'text-slate-600'}">
+                ${pkt.desc}
+              </div>
+            </div>
+          </button>
+        `;
+      }).join('');
+    }
+
+    function selectPacket(id) {
+      SFX.click();
+      state.packetId = id;
+      renderPacketCards();
+    }
+
+    function selectQuestionCount(count) {
+      SFX.click();
+      state.questionCount = count;
+      document.querySelectorAll('.count-btn').forEach(btn => {
+        const val = Number(btn.getAttribute('data-count'));
+        if (val === count) {
+          btn.className = 'count-btn btn-3d btn-3d-sky text-white font-display font-bold px-5 py-2.5 rounded-2xl text-base sm:text-lg';
+        } else {
+          btn.className = 'count-btn btn-3d btn-3d-white text-slate-800 font-display font-bold px-5 py-2.5 rounded-2xl text-base sm:text-lg';
+        }
+      });
+    }
+
+    /* =======================================================================
+       6. UTILITAS PENGACAKAN SOAL
+       ======================================================================= */
+    function shuffleArray(arr) {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function buildQuestionSet(packetId, count) {
+      let pool = packetId === 5
+        ? [...QUESTION_BANK]
+        : QUESTION_BANK.filter(item => item.packet === packetId);
+
+      let result = [];
+      while (result.length < count) {
+        const shuffled = shuffleArray(pool);
+        for (const q of shuffled) {
+          if (result.length < count) {
+            result.push(q);
+          }
+        }
+      }
+      return result;
+    }
+
+    /* =======================================================================
+       7. MEMULAI PERMAINAN & COUNTDOWN 3 - 2 - 1 - MULAI!
+       ======================================================================= */
+    function startGame() {
+      SFX.click();
+      stopTimer();
+
+      const pktObj = PACKETS.find(p => p.id === state.packetId);
+      const p0Name = getPlayerDisplayName(0);
+      const p1Name = getPlayerDisplayName(1);
+      const p0Color = state.profiles[0].color;
+      const p1Color = state.profiles[1].color;
+
+      if (state.mode === 'solo') {
+        state.players = [
+          {
+            name: p0Name,
+            color: p0Color,
+            questions: buildQuestionSet(state.packetId, state.questionCount),
+            currentIndex: 0,
+            correct: 0,
+            wrong: 0,
+            score: 0,
+            finished: false,
+            locked: false
+          }
+        ];
+
+        document.getElementById('gameplay-solo').classList.remove('hidden');
+        document.getElementById('gameplay-battle').classList.add('hidden');
+        document.getElementById('solo-q-total').textContent = state.questionCount;
+        document.getElementById('solo-packet-badge').textContent = pktObj.shortTitle;
+        document.getElementById('solo-player-badge').textContent = `🐔 ${p0Name}`;
+        document.getElementById('solo-track-name').textContent = p0Name;
+        document.getElementById('solo-chicken').innerHTML = getChickenSVG(p0Color, 'solo');
+        updateSoloHUD();
+        updateRacerPosition('solo', 0);
+        renderSoloQuestion();
+      } else {
+        state.players = [
+          {
+            name: p0Name,
+            color: p0Color,
+            questions: buildQuestionSet(state.packetId, state.questionCount),
+            currentIndex: 0,
+            correct: 0,
+            wrong: 0,
+            score: 0,
+            finished: false,
+            finishTime: null,
+            locked: false
+          },
+          {
+            name: p1Name,
+            color: p1Color,
+            questions: buildQuestionSet(state.packetId, state.questionCount),
+            currentIndex: 0,
+            correct: 0,
+            wrong: 0,
+            score: 0,
+            finished: false,
+            finishTime: null,
+            locked: false
+          }
+        ];
+
+        document.getElementById('gameplay-solo').classList.add('hidden');
+        document.getElementById('gameplay-battle').classList.remove('hidden');
+
+        [0, 1].forEach(pIdx => {
+          const p = state.players[pIdx];
+          const rival = state.players[1 - pIdx];
+          document.getElementById(`b${pIdx}-q-total`).textContent = state.questionCount;
+          document.getElementById(`b${pIdx}-header-name`).textContent = p.name;
+          document.getElementById(`b${pIdx}-track-name`).textContent = p.name;
+          document.getElementById(`b${pIdx}-chicken`).innerHTML = getChickenSVG(p.color, `battle${pIdx}`);
+          const rivalBadge = document.getElementById(`b${pIdx}-rival-badge`);
+          if (rivalBadge) rivalBadge.textContent = `${rival.name}: 0%`;
+          updateBattleHUD(pIdx);
+          updateRacerPosition(`b${pIdx}`, 0);
+          renderBattleQuestion(pIdx);
+        });
+      }
+
+      showScreen('screen-game');
+      runCountdown(() => {
+        state.startTime = Date.now();
+        startTimer();
+      });
+    }
+
+    function runCountdown(onComplete) {
+      state.isCountdown = true;
+      const overlay = document.getElementById('countdown-overlay');
+      const textEl = document.getElementById('countdown-text');
+      overlay.classList.remove('hidden');
+
+      const steps = ['3', '2', '1', 'MULAI!'];
+      let i = 0;
+
+      function showStep() {
+        const label = steps[i];
+        textEl.textContent = label;
+        textEl.classList.remove('animate-pop-3d');
+        void textEl.offsetWidth;
+        textEl.classList.add('animate-pop-3d');
+
+        if (label === 'MULAI!') {
+          textEl.className = 'font-display font-bold text-6xl sm:text-8xl text-emerald-300 drop-shadow-[0_10px_0_#064e3b] animate-pop-3d';
+          SFX.countdown(true);
+        } else {
+          textEl.className = 'font-display font-bold text-7xl sm:text-9xl text-amber-300 drop-shadow-[0_10px_0_#b45309] animate-pop-3d';
+          SFX.countdown(false);
+        }
+
+        i++;
+        if (i < steps.length) {
+          setTimeout(showStep, 680);
+        } else {
+          setTimeout(() => {
+            overlay.classList.add('hidden');
+            state.isCountdown = false;
+            onComplete();
+          }, 600);
+        }
+      }
+
+      showStep();
+    }
+
+    /* =======================================================================
+       8. TIMER PERMAINAN
+       ======================================================================= */
+    function startTimer() {
+      stopTimer();
+      state.timerInterval = setInterval(() => {
+        const elapsedSec = Math.floor((Date.now() - state.startTime) / 1000);
+        if (state.mode === 'solo') {
+          document.getElementById('solo-timer').textContent = formatTime(elapsedSec);
+        }
+      }, 250);
+    }
+
+    function stopTimer() {
+      if (state.timerInterval) {
+        clearInterval(state.timerInterval);
+        state.timerInterval = null;
+      }
+    }
+
+    function formatTime(totalSeconds) {
+      const mins = String(Math.floor(totalSeconds / 60)).padStart(2, '0');
+      const secs = String(totalSeconds % 60).padStart(2, '0');
+      return `${mins}:${secs}`;
+    }
+
+    /* =======================================================================
+       9. ANIMASI LINTASAN 3D & LOMPATAN PARABOLIK AYAM
+       ======================================================================= */
+    function updateRacerPosition(prefix, progressRatio) {
+      const clamped = Math.max(0, Math.min(1, progressRatio));
+      const baseLeft = prefix === 'solo' ? 2 : 1;
+      const span = prefix === 'solo' ? 82 : 73;
+      const leftPercent = `${(baseLeft + clamped * span).toFixed(1)}%`;
+      const wrap = document.getElementById(`${prefix}-racer-wrap`);
+      if (wrap) {
+        wrap.style.left = leftPercent;
+      }
+
+      // Perbarui mini-indikator lawan pada panel sisi sebelahnya saat Mode Battle
+      if (prefix === 'b0' || prefix === 'b1') {
+        const myIdx = prefix === 'b0' ? 0 : 1;
+        const otherIdx = 1 - myIdx;
+        const pct = Math.round(clamped * 100);
+        const myPlayer = state.players[myIdx];
+
+        const rivalMarker = document.getElementById(`b${otherIdx}-rival-marker`);
+        if (rivalMarker) {
+          rivalMarker.style.left = leftPercent;
+        }
+        const rivalBadge = document.getElementById(`b${otherIdx}-rival-badge`);
+        if (rivalBadge && myPlayer) {
+          rivalBadge.textContent = `${myPlayer.name}: ${pct}%`;
+        }
+      }
+    }
+
+    function triggerChickenAnim(prefix, isCorrect) {
+      const chickenEl = document.getElementById(`${prefix}-chicken`);
+      const shadowEl = document.getElementById(`${prefix}-shadow`);
+      const dustZone = document.getElementById(`${prefix}-dust-zone`);
+
+      if (!chickenEl) return;
+
+      chickenEl.classList.remove('chicken-idle-3d', 'chicken-jump-3d', 'chicken-wobble-3d');
+      if (shadowEl) {
+        shadowEl.classList.remove('chicken-shadow-idle', 'chicken-shadow-jump');
+      }
+      void chickenEl.offsetWidth;
+
+      if (isCorrect) {
+        chickenEl.classList.add('chicken-jump-3d');
+        if (shadowEl) shadowEl.classList.add('chicken-shadow-jump');
+
+        if (dustZone) {
+          const spark = document.createElement('div');
+          spark.textContent = '✨⭐';
+          spark.className = 'sparkle-burst text-lg sm:text-xl font-bold';
+          dustZone.appendChild(spark);
+          setTimeout(() => spark.remove(), 700);
+        }
+      } else {
+        chickenEl.classList.add('chicken-wobble-3d');
+      }
+
+      setTimeout(() => {
+        chickenEl.classList.remove('chicken-jump-3d', 'chicken-wobble-3d');
+        chickenEl.classList.add('chicken-idle-3d');
+        if (shadowEl) {
+          shadowEl.classList.remove('chicken-shadow-jump');
+          shadowEl.classList.add('chicken-shadow-idle');
+        }
+      }, 620);
+    }
+
+    /* =======================================================================
+       10. LOGIKA GAMEPLAY MODE SOLO
+       ======================================================================= */
+    function updateSoloHUD() {
+      const p = state.players[0];
+      const displayNum = Math.min(p.currentIndex + 1, state.questionCount);
+      document.getElementById('solo-q-num').textContent = displayNum;
+      document.getElementById('solo-score').textContent = p.score;
+      document.getElementById('solo-correct').textContent = p.correct;
+    }
+
+    function renderSoloQuestion() {
+      const p = state.players[0];
+      if (p.currentIndex >= state.questionCount) {
+        finishGame();
+        return;
+      }
+
+      const item = p.questions[p.currentIndex];
+      document.getElementById('solo-subtopic').textContent = item.subtopic;
+      document.getElementById('solo-question-text').textContent = item.q;
+
+      const fb = document.getElementById('solo-feedback');
+      fb.classList.add('hidden');
+
+      const letters = ['A', 'B', 'C', 'D'];
+      const optColors = [
+        'bg-gradient-to-b from-sky-300 to-sky-500 border-white text-white shadow-[0_5px_0_#0369a1]',
+        'bg-gradient-to-b from-amber-300 to-amber-500 border-white text-amber-950 shadow-[0_5px_0_#b45309]',
+        'bg-gradient-to-b from-emerald-400 to-emerald-600 border-white text-white shadow-[0_5px_0_#047857]',
+        'bg-gradient-to-b from-violet-400 to-purple-600 border-white text-white shadow-[0_5px_0_#5b21b6]'
+      ];
+
+      const optionsContainer = document.getElementById('solo-options');
+      optionsContainer.innerHTML = item.options.map((optText, idx) => `
+        <button onclick="handleSoloAnswer(${idx})"
+          class="solo-opt-btn btn-3d border-3 rounded-2xl p-2.5 sm:p-3 text-left flex items-center gap-2.5 font-display font-bold text-sm sm:text-lg ${optColors[idx]}">
+          <span class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white text-slate-900 flex items-center justify-center shrink-0 text-sm sm:text-base shadow-xs">
+            ${letters[idx]}
+          </span>
+          <span class="leading-snug">${optText}</span>
+        </button>
+      `).join('');
+    }
+
+    function handleSoloAnswer(chosenIdx) {
+      if (state.isCountdown) return;
+      const p = state.players[0];
+      if (p.locked || p.finished) return;
+      p.locked = true;
+
+      const item = p.questions[p.currentIndex];
+      const isCorrect = chosenIdx === item.answer;
+      const fb = document.getElementById('solo-feedback');
+      const btns = document.querySelectorAll('.solo-opt-btn');
+
+      btns.forEach((btn, idx) => {
+        btn.disabled = true;
+        if (idx === item.answer) {
+          btn.className = 'solo-opt-btn border-3 rounded-2xl p-3 sm:p-3.5 text-left flex items-center gap-3 font-display font-bold text-base sm:text-xl bg-gradient-to-b from-emerald-400 to-emerald-600 border-white text-white shadow-[0_5px_0_#064e3b] scale-[1.02]';
+        } else if (idx === chosenIdx && !isCorrect) {
+          btn.className = 'solo-opt-btn border-3 rounded-2xl p-3 sm:p-3.5 text-left flex items-center gap-3 font-display font-bold text-base sm:text-xl bg-gradient-to-b from-rose-400 to-rose-600 border-white text-white shadow-[0_5px_0_#881337]';
+        } else {
+          btn.style.opacity = '0.45';
+        }
+      });
+
+      if (isCorrect) {
+        p.correct++;
+        p.score += 100;
+        SFX.correct();
+        fb.textContent = '🎉 MASYA ALLAH, BENAR! Ayam melompat maju! (+100)';
+        fb.className = 'my-1.5 px-4 py-2 rounded-2xl text-center font-display font-bold text-sm sm:text-lg border-3 bg-emerald-100 border-emerald-500 text-emerald-900 animate-pop-3d';
+        updateRacerPosition('solo', p.correct / state.questionCount);
+        triggerChickenAnim('solo', true);
+      } else {
+        p.wrong++;
+        SFX.wrong();
+        const letters = ['A', 'B', 'C', 'D'];
+        fb.textContent = `💡 YAH, KURANG TEPAT! Jawaban benar: ${letters[item.answer]}. ${item.options[item.answer]}`;
+        fb.className = 'my-1.5 px-4 py-2 rounded-2xl text-center font-display font-bold text-xs sm:text-base border-3 bg-rose-100 border-rose-500 text-rose-900 animate-pop-3d';
+        triggerChickenAnim('solo', false);
+      }
+
+      fb.classList.remove('hidden');
+      updateSoloHUD();
+
+      setTimeout(() => {
+        p.currentIndex++;
+        p.locked = false;
+        if (p.currentIndex >= state.questionCount) {
+          p.finished = true;
+          finishGame();
+        } else {
+          updateSoloHUD();
+          renderSoloQuestion();
+        }
+      }, isCorrect ? 950 : 1650);
+    }
+
+    /* =======================================================================
+       11. LOGIKA GAMEPLAY MODE BATTLE (2 PEMAIN KIRI & KANAN)
+       ======================================================================= */
+    function updateBattleHUD(pIdx) {
+      const p = state.players[pIdx];
+      const displayNum = Math.min(p.currentIndex + 1, state.questionCount);
+      document.getElementById(`b${pIdx}-q-num`).textContent = displayNum;
+      document.getElementById(`b${pIdx}-score`).textContent = p.score;
+    }
+
+    function renderBattleQuestion(pIdx) {
+      const p = state.players[pIdx];
+      const qEl = document.getElementById(`b${pIdx}-question-text`);
+      const optEl = document.getElementById(`b${pIdx}-options`);
+      const fbEl = document.getElementById(`b${pIdx}-feedback`);
+      fbEl.classList.add('hidden');
+
+      if (p.currentIndex >= state.questionCount) {
+        p.finished = true;
+        if (!p.finishTime) p.finishTime = Date.now();
+        qEl.innerHTML = `<span class="text-emerald-600 text-xl sm:text-2xl">🎉 SELESAI!</span><br><span class="text-xs sm:text-sm text-slate-600">Menunggu lawan menyelesaikan soal...</span>`;
+        optEl.innerHTML = '';
+        checkBattleEnd();
+        return;
+      }
+
+      const item = p.questions[p.currentIndex];
+      qEl.textContent = item.q;
+
+      const letters = ['A', 'B', 'C', 'D'];
+      const themeBtn = pIdx === 0
+        ? 'bg-gradient-to-b from-sky-300 to-sky-500 border-white text-white shadow-[0_4px_0_#0369a1]'
+        : 'bg-gradient-to-b from-amber-300 to-amber-500 border-white text-amber-950 shadow-[0_4px_0_#b45309]';
+
+      optEl.innerHTML = item.options.map((optText, idx) => `
+        <button onclick="handleBattleAnswer(${pIdx}, ${idx})"
+          class="b${pIdx}-opt-btn btn-3d border-2 rounded-xl px-2 py-1.5 sm:py-2 text-left flex items-center gap-1.5 font-display font-bold text-xs sm:text-sm ${themeBtn}">
+          <span class="w-5 h-5 sm:w-6 sm:h-6 rounded-md bg-white text-slate-900 flex items-center justify-center shrink-0 text-[11px] sm:text-xs shadow-2xs">
+            ${letters[idx]}
+          </span>
+          <span class="leading-tight">${optText}</span>
+        </button>
+      `).join('');
+    }
+
+    function handleBattleAnswer(pIdx, chosenIdx) {
+      if (state.isCountdown) return;
+      const p = state.players[pIdx];
+      if (p.locked || p.finished) return;
+      p.locked = true;
+
+      const item = p.questions[p.currentIndex];
+      const isCorrect = chosenIdx === item.answer;
+      const fbEl = document.getElementById(`b${pIdx}-feedback`);
+      const btns = document.querySelectorAll(`.b${pIdx}-opt-btn`);
+
+      btns.forEach((btn, idx) => {
+        btn.disabled = true;
+        if (idx === item.answer) {
+          btn.className = `b${pIdx}-opt-btn border-2 rounded-2xl px-2.5 py-2 sm:py-2.5 text-left flex items-center gap-2 font-display font-bold text-xs sm:text-base bg-gradient-to-b from-emerald-400 to-emerald-600 border-white text-white shadow-[0_4px_0_#047857]`;
+        } else if (idx === chosenIdx && !isCorrect) {
+          btn.className = `b${pIdx}-opt-btn border-2 rounded-2xl px-2.5 py-2 sm:py-2.5 text-left flex items-center gap-2 font-display font-bold text-xs sm:text-base bg-gradient-to-b from-rose-400 to-rose-600 border-white text-white shadow-[0_4px_0_#9f1239]`;
+        } else {
+          btn.style.opacity = '0.45';
+        }
+      });
+
+      if (isCorrect) {
+        p.correct++;
+        p.score += 100;
+        SFX.correct();
+        fbEl.textContent = '✅ BENAR! +100';
+        fbEl.className = 'my-1 px-2 py-1 rounded-xl text-center font-display font-bold text-xs sm:text-sm border-2 bg-emerald-100 border-emerald-500 text-emerald-900';
+        updateRacerPosition(`b${pIdx}`, p.correct / state.questionCount);
+        triggerChickenAnim(`b${pIdx}`, true);
+      } else {
+        p.wrong++;
+        SFX.wrong();
+        const letters = ['A', 'B', 'C', 'D'];
+        fbEl.textContent = `❌ Kurang tepat (${letters[item.answer]})`;
+        fbEl.className = 'my-1 px-2 py-1 rounded-xl text-center font-display font-bold text-xs sm:text-sm border-2 bg-rose-100 border-rose-500 text-rose-900';
+        triggerChickenAnim(`b${pIdx}`, false);
+      }
+
+      fbEl.classList.remove('hidden');
+      updateBattleHUD(pIdx);
+
+      if (p.correct >= state.questionCount) {
+        p.finished = true;
+        p.finishTime = Date.now();
+        setTimeout(() => finishGame(), 700);
+        return;
+      }
+
+      setTimeout(() => {
+        p.currentIndex++;
+        p.locked = false;
+        if (p.currentIndex >= state.questionCount) {
+          p.finished = true;
+          p.finishTime = Date.now();
+        }
+        updateBattleHUD(pIdx);
+        renderBattleQuestion(pIdx);
+        checkBattleEnd();
+      }, isCorrect ? 750 : 1250);
+    }
+
+    function checkBattleEnd() {
+      if (state.players[0].finished && state.players[1].finished) {
+        setTimeout(() => finishGame(), 500);
+      }
+    }
+
+    /* =======================================================================
+       12. LAYAR HASIL AKHIR (PODIUM 3D BERKONFETI) & RIWAYAT SKOR
+       ======================================================================= */
+    function spawnConfetti() {
+      const container = document.getElementById('confetti-container');
+      if (!container) return;
+      const colors = ['#facc15', '#38bdf8', '#4ade80', '#fb7185', '#a855f7', '#fb923c'];
+      let html = '';
+      for (let i = 0; i < 28; i++) {
+        const left = Math.random() * 100;
+        const delay = (Math.random() * 2.2).toFixed(2);
+        const dur = (2.1 + Math.random() * 1.4).toFixed(2);
+        const color = colors[i % colors.length];
+        html += `<div class="confetti-piece" style="left:${left}%; background:${color}; animation-delay:${delay}s; animation-duration:${dur}s;"></div>`;
+      }
+      container.innerHTML = html;
+    }
+
+    function finishGame() {
+      stopTimer();
+      SFX.win();
+      spawnConfetti();
+
+      const elapsedSec = Math.max(1, Math.floor((Date.now() - state.startTime) / 1000));
+      const timeFormatted = formatTime(elapsedSec);
+      const pktObj = PACKETS.find(p => p.id === state.packetId);
+
+      document.getElementById('result-subheadline').textContent = `${pktObj.title} (${state.questionCount} Soal)`;
+      const bodyEl = document.getElementById('result-body');
+
+      if (state.mode === 'solo') {
+        const p = state.players[0];
+        const accuracy = Math.round((p.correct / state.questionCount) * 100);
+        let titleMsg = `Mumtaz, ${escapeHtml(p.name)}! Luar Biasa! 🌟`;
+        if (accuracy < 60) titleMsg = `Terus Semangat Berlatih, ${escapeHtml(p.name)}! 💪`;
+        else if (accuracy < 85) titleMsg = `Bagus Sekali, ${escapeHtml(p.name)}! Hebat! 👏`;
+
+        document.getElementById('result-headline').textContent = titleMsg;
+
+        bodyEl.innerHTML = `
+          <div class="flex flex-col items-center mb-4">
+            <div class="w-24 h-24 chicken-idle-3d z-10">${getChickenSVG(p.color, 'res0')}</div>
+            <div class="px-4 h-6 rounded-xl bg-gradient-to-b from-amber-300 to-amber-500 border-2 border-white shadow-[0_4px_0_#b45309] -mt-1 flex items-center justify-center font-display font-bold text-xs text-amber-950">
+              🏆 ${escapeHtml(p.name)}
+            </div>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="bg-gradient-to-b from-amber-100 to-amber-200 border-3 border-white shadow-[0_4px_0_#f59e0b] rounded-2xl p-3">
+              <div class="text-xs font-extrabold text-amber-900">SKOR AKHIR</div>
+              <div class="font-display font-bold text-2xl sm:text-3xl text-amber-950 mt-1">${p.score}</div>
+            </div>
+            <div class="bg-gradient-to-b from-emerald-100 to-emerald-200 border-3 border-white shadow-[0_4px_0_#10b981] rounded-2xl p-3">
+              <div class="text-xs font-extrabold text-emerald-900">BENAR / SALAH</div>
+              <div class="font-display font-bold text-2xl sm:text-3xl text-emerald-950 mt-1">${p.correct} / ${p.wrong}</div>
+            </div>
+            <div class="bg-gradient-to-b from-sky-100 to-sky-200 border-3 border-white shadow-[0_4px_0_#0ea5e9] rounded-2xl p-3">
+              <div class="text-xs font-extrabold text-sky-900">KETEPATAN</div>
+              <div class="font-display font-bold text-2xl sm:text-3xl text-sky-950 mt-1">${accuracy}%</div>
+            </div>
+            <div class="bg-gradient-to-b from-purple-100 to-purple-200 border-3 border-white shadow-[0_4px_0_#8b5cf6] rounded-2xl p-3">
+              <div class="text-xs font-extrabold text-purple-900">WAKTU TEMPUH</div>
+              <div class="font-display font-bold text-2xl sm:text-3xl text-purple-950 mt-1">${timeFormatted}</div>
+            </div>
+          </div>
+        `;
+
+        saveHistory({
+          mode: 'Solo',
+          packet: pktObj.shortTitle,
+          detail: `${p.name} • Skor ${p.score} (${p.correct}/${state.questionCount} Benar • ${accuracy}%)`,
+          time: timeFormatted,
+          date: new Date().toLocaleDateString('id-ID', { day: '2-digit', month: 'short', year: 'numeric' })
+        });
+      } else {
+        const p1 = state.players[0];
+        const p2 = state.players[1];
+        const acc1 = Math.round((p1.correct / state.questionCount) * 100);
+        const acc2 = Math.round((p2.correct / state.questionCount) * 100);
+
+        let winnerText = '🤝 HASIL SERI (IMBANG)!';
+        if (p1.score > p2.score) {
+          winnerText = `🏆 PEMENANG: ${p1.name.toUpperCase()}!`;
+        } else if (p2.score > p1.score) {
+          winnerText = `🏆 PEMENANG: ${p2.name.toUpperCase()}!`;
+        } else if (p1.finishTime && p2.finishTime && p1.finishTime !== p2.finishTime) {
+          winnerText = p1.finishTime < p2.finishTime
+            ? `🏆 PEMENANG: ${p1.name.toUpperCase()} (LEBIH CEPAT)!`
+            : `🏆 PEMENANG: ${p2.name.toUpperCase()} (LEBIH CEPAT)!`;
+        }
+
+        document.getElementById('result-headline').textContent = winnerText;
+
+        bodyEl.innerHTML = `
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+            <!-- Kartu Podium Pemain 1 -->
+            <div class="bg-gradient-to-b from-sky-100 to-sky-200 border-3 border-white shadow-[0_5px_0_#0284c7] rounded-3xl p-4 flex items-center gap-3">
+              <div class="w-16 h-16 shrink-0 chicken-idle-3d">${getChickenSVG(p1.color, 'resb0')}</div>
+              <div class="flex-1 min-w-0">
+                <div class="font-display font-bold text-lg text-sky-950 truncate">P1 • ${escapeHtml(p1.name)}</div>
+                <div class="font-display font-bold text-2xl text-sky-700">Skor: ${p1.score}</div>
+                <div class="text-xs font-extrabold text-slate-700 mt-0.5">
+                  Benar: ${p1.correct} • Salah: ${p1.wrong} • Akurasi: ${acc1}%
+                </div>
+              </div>
+            </div>
+
+            <!-- Kartu Podium Pemain 2 -->
+            <div class="bg-gradient-to-b from-amber-100 to-amber-200 border-3 border-white shadow-[0_5px_0_#d97706] rounded-3xl p-4 flex items-center gap-3">
+              <div class="w-16 h-16 shrink-0 chicken-idle-3d" style="animation-delay:0.3s;">${getChickenSVG(p2.color, 'resb1')}</div>
+              <div class="flex-1 min-w-0">
+                <div class="font-display font-bold text-lg text-amber-950 truncate">P2 • ${escapeHtml(p2.name)}</div>
+                <div class="font-display font-bold text-2xl text-orange-700">Skor: ${p2.score}</div>
+                <div class="text-xs font-extrabold text-slate-700 mt-0.5">
+                  Benar: ${p2.correct} • Salah: ${p2.wrong} • Akurasi: ${acc2}%
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-3 text-xs sm:text-sm font-extrabold text-slate-600">
+            ⏱️ Total Waktu Pertandingan: ${timeFormatted}
+          </div>
+        `;
+
+        saveHistory({
+          mode: 'Battle 2P',
+          packet: pktObj.shortTitle,
+          detail: `${p1.name} (${p1.score}) vs ${p2.name} (${p2.score}) • ${winnerText.replace('🏆 ', '')}`,
+          time: timeFormatted,
+          date: new Date().toLocaleDateString('id-ID', { day: '2-digit', month: 'short', year: 'numeric' })
+        });
+      }
+
+      showScreen('screen-result');
+    }
+
+    /* =======================================================================
+       13. PENYIMPANAN RIWAYAT SKOR (LOCALSTORAGE)
+       ======================================================================= */
+    const HISTORY_KEY = 'balap_ayam_pai_kls2_history_v1';
+
+    function saveHistory(entry) {
+      try {
+        const list = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+        list.unshift(entry);
+        localStorage.setItem(HISTORY_KEY, JSON.stringify(list.slice(0, 20)));
+      } catch (e) {}
+    }
+
+    function openHistoryModal() {
+      const container = document.getElementById('history-content');
+      let list = [];
+      try {
+        list = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+      } catch (e) {
+        list = [];
+      }
+
+      if (list.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-8 text-slate-500 font-extrabold">
+            Belum ada riwayat balapan. Ayo mulai bermain! 🐔🏁
+          </div>
+        `;
+      } else {
+        container.innerHTML = list.map((item, idx) => `
+          <div class="bg-sky-50 border-2 border-sky-200 rounded-2xl p-3 flex items-center justify-between gap-3">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="bg-emerald-500 text-white font-display font-bold text-xs px-2.5 py-0.5 rounded-full">
+                  #${idx + 1} • ${item.mode}
+                </span>
+                <span class="font-display font-bold text-sm text-sky-950">${item.packet}</span>
+              </div>
+              <div class="text-xs sm:text-sm font-extrabold text-slate-700 mt-1">${item.detail}</div>
+            </div>
+            <div class="text-right shrink-0 text-xs font-extrabold text-slate-500">
+              <div>⏱️ ${item.time}</div>
+              <div>${item.date}</div>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      openModal('modal-history');
+    }
+
+    function clearHistory() {
+      SFX.click();
+      try {
+        localStorage.removeItem(HISTORY_KEY);
+      } catch (e) {}
+      openHistoryModal();
+    }
+  </script>
+</body>
+</html>
